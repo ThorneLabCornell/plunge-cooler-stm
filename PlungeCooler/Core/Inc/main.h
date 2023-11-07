@@ -44,10 +44,13 @@ void move_pan_steps(uint32_t delay, uint8_t dir, uint32_t num_steps);
 void move_pan_deg(uint32_t degrees, uint8_t dir);
 
 void step(uint32_t delay, uint32_t port, uint32_t pin, uint8_t dir);
-
+void move_dispenser(void);
 /*** USART Rx HANDLE ***/
 void ack(void);
 void bad(void);
+
+/*** PLUNGE ***/
+void start_plunge(void);
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -83,8 +86,6 @@ void Error_Handler(void);
 #define PLUNGE_ENC_A_GPIO_Port GPIOA
 #define PLUNGE_ENC_B_Pin GPIO_PIN_1
 #define PLUNGE_ENC_B_GPIO_Port GPIOA
-#define BRAKE_Pin GPIO_PIN_4
-#define BRAKE_GPIO_Port GPIOA
 #define TILT_DIR_Pin GPIO_PIN_5
 #define TILT_DIR_GPIO_Port GPIOA
 #define TILT_EN_Pin GPIO_PIN_6
@@ -109,6 +110,8 @@ void Error_Handler(void);
 #define USB_FS_N_GPIO_Port GPIOA
 #define USB_FS_P_Pin GPIO_PIN_12
 #define USB_FS_P_GPIO_Port GPIOA
+#define BRAKE_Pin GPIO_PIN_6
+#define BRAKE_GPIO_Port GPIOB
 #define PAN_DIR_Pin GPIO_PIN_8
 #define PAN_DIR_GPIO_Port GPIOB
 #define PAN_EN_Pin GPIO_PIN_9
@@ -132,8 +135,8 @@ void Error_Handler(void);
 #define PAN_DEG_TO_STEPS 200
 #define TILT_DEG_TO_STEPS 200
 
-#define ACK '1'
-#define BAD '0'
+#define ACK '1\r\n'
+#define BAD '0\r\n'
 
 #define MOVE '1'
 #define PLUNGE '2'

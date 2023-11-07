@@ -1,0 +1,102 @@
+2023-10-23 17:13:49,021 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 593507936 Bytes (979369984)
+2023-10-23 17:13:50,811 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 641815328 Bytes (979369984)
+2023-10-23 17:13:51,109 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 677388632 Bytes (979369984)
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_HS
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-10-23 17:13:51,695 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-10-23 17:13:51,696 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2023-10-23 17:13:51,696 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-10-23 17:13:51,698 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-10-23 17:13:51,793 [INFO] Argument:319 - Argument : hdmavalue: null
+2023-10-23 17:13:51,793 [INFO] Argument:321 - 	 sub Args: 
+2023-10-23 17:13:51,793 [INFO] Argument:319 - Argument : Instancevalue: DMA1_Stream0
+2023-10-23 17:13:51,793 [INFO] Argument:329 - Argument : Instancevalue: DMA1_Stream0
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : Initvalue: null
+2023-10-23 17:13:51,794 [INFO] Argument:321 - 	 sub Args: 
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : Requestvalue: DMA_REQUEST_TIM2_UP
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : Requestvalue: DMA_REQUEST_TIM2_UP
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : Modevalue: DMA_NORMAL
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : Modevalue: DMA_NORMAL
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2023-10-23 17:13:51,794 [INFO] Argument:319 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-10-23 17:13:51,794 [INFO] Argument:329 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : FIFOThresholdvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : FIFOThresholdvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : MemBurstvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : MemBurstvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : PeriphBurstvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : PeriphBurstvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : Lockvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : Lockvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : Statevalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : Statevalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : Parentvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : Parentvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : XferCpltCallbackvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : XferCpltCallbackvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:319 - Argument : XferHalfCpltCallbackvalue: null
+2023-10-23 17:13:51,795 [INFO] Argument:329 - Argument : XferHalfCpltCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : XferM1CpltCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : XferM1CpltCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : XferM1HalfCpltCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : XferM1HalfCpltCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : XferErrorCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : XferErrorCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : XferAbortCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : XferAbortCallbackvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : ErrorCodevalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : ErrorCodevalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : StreamBaseAddressvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : StreamBaseAddressvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:319 - Argument : StreamIndexvalue: null
+2023-10-23 17:13:51,796 [INFO] Argument:329 - Argument : StreamIndexvalue: null
+2023-10-23 17:13:52,258 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp_save
+2023-10-23 17:13:52,488 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp
+2023-10-23 17:13:52,622 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp_save
+2023-10-23 17:13:52,825 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp
+2023-10-23 17:13:53,764 [WARN] IPConfigManager:99 - WARNING: Missing Config File for USB ip!!
+2023-10-23 17:13:53,981 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp_save
+2023-10-23 17:13:54,183 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp
+2023-10-23 17:13:54,298 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\dma.tmp_save
+2023-10-23 17:13:54,458 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\dma.tmp
+2023-10-23 17:13:54,476 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\dma_GV.tmp_save
+2023-10-23 17:13:54,576 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\dma_GV.tmp
+2023-10-23 17:13:54,643 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c_save
+2023-10-23 17:13:55,055 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c
+2023-10-23 17:13:55,074 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h_save
+2023-10-23 17:13:55,208 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h
+2023-10-23 17:13:55,483 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c_save
+2023-10-23 17:13:55,693 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c
+2023-10-23 17:13:55,721 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp_save
+2023-10-23 17:13:55,881 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp
+2023-10-23 17:13:55,927 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h_save
+2023-10-23 17:13:56,142 [INFO] CodeEngine:335 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h
+2023-10-23 17:13:56,237 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-10-23 17:13:56,237 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-10-23 17:13:56,238 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-23 17:13:56,238 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-23 17:13:56,277 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h_save
+2023-10-23 17:13:56,499 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h
+2023-10-23 17:13:56,561 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c_save
+2023-10-23 17:13:56,839 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c
+2023-10-23 17:13:58,048 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 397mS.
+2023-10-23 17:13:58,054 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-10-23 17:13:58,622 [INFO] ConfigFileManager:1483 - The Die is : DIE480
+2023-10-23 17:14:02,100 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 4046mS.
+2023-10-23 17:14:02,102 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 1mS.
+2023-10-23 17:14:02,106 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.

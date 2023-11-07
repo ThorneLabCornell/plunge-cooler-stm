@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "globals.h"
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,8 +34,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint32_t speed = 0;
+double speed = 0;
 uint32_t current_pos = 0;
+uint32_t prev_pos = 0;
+uint32_t next_pos = 0;
+uint32_t next_next_pos = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,8 +62,8 @@ uint32_t current_pos = 0;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DMA_HandleTypeDef hdma_tim2_up;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 extern UART_HandleTypeDef huart3;
 /* USER CODE BEGIN EV */
@@ -204,35 +209,21 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles DMA1 stream0 global interrupt.
-  */
-void DMA1_Stream0_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
-
-  /* USER CODE END DMA1_Stream0_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_tim2_up);
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
-
-  /* USER CODE END DMA1_Stream0_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM2 global interrupt.
   */
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+//NOTE TO MORNING LEO: LOG SEEMS TO WORK, SHOULD TRANSMIT IT TO PC FOR EASY VISUALIZATION
 	if ((TIM2->SR & TIM_SR_UIF) != 0) { // check if update interrupt occured
-
 		HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 0); //engage brake
-		//also somehow stop motor first
+		posn_braked_at = TIM2->CNT;
+		//also somehow stop motor
 
-		char rr[] = "test\r\n";
-		HAL_UART_Transmit(&huart3, (uint8_t*)rr, strlen(rr), HAL_MAX_DELAY);
+		plunge_done_flag = 1;
 
-		TIM2->SR &= ~TIM_SR_UIF; // Clear the interrupt flag
-
+		TIM2->SR &= ~TIM_SR_UIF; 	// Clear the interrupt flag
+		//TIM2->ARR = 999999;			//massive so that we dont hit it when we try to move around. later i can just diable timer but for debugging i want to preserve tim2->cnt
     }
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
@@ -242,12 +233,32 @@ void TIM2_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM4 global interrupt.
+  */
+void TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM4_IRQn 0 */
+	if ((TIM4->SR & TIM_SR_UIF) != 0) {
+		DEPOSITED = 1;
+		TIM4->DIER &=  ~TIM_DIER_UIE; 	// update interrupt disabled
+
+		//TIM4->CR1 &= ~TIM_CR1_CEN; 	// only fire this timer once
+	}
+  /* USER CODE END TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim4);
+
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART3 global interrupt.
   */
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-
+	//dispense();
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
@@ -261,19 +272,58 @@ void USART3_IRQHandler(void)
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
-	if (TIM5->SR & TIM_SR_UIF) { //update event occurred
+		/* always dot he logging portion */
+		/* TODO: Convert this datalogging to DMA to speed it up. actually a priority I think it would have big preformance gains*/
 		log_position += 1; // increment number of data points taken
 		current_pos = TIM2->CNT;
-		posLog[log_position] = current_pos;
-		running_sum += current_pos;
-		if(log_position > MOVING_AVG_LENGTH) {
-			running_sum -= posLog[log_position - MOVING_AVG_LENGTH];
+		posLog[log_position] = current_pos; // update log of positions
+		running_sum += current_pos - prev_pos;
+		prev_pos = current_pos;
+		/* if disp hasnt triggered yet, calculate speed and find disp pos */
+		if(!disp_flag){
+			if(log_position >= MOVING_AVG_LENGTH) {
+				/*update running sum of most recent n data points*/
+				running_sum -= (posLog[log_position - MOVING_AVG_LENGTH + 1] - posLog[log_position - MOVING_AVG_LENGTH]);
+				speed = (double)running_sum / (double)MOVING_AVG_LENGTH; // speed in pulses per log
+
+				uint32_t clocks_per_encoder_pulse = (CLOCKS_PER_LOG / speed); // a form of speed measurement
+
+				next_next_pos = current_pos + 2*speed;	// predicted position 2 TIM5 updates from now. if this is beyond disp_pos we want to trigger TIM4
+
+				// enc				enc		   enc/log			clocks 				clocks/log
+				dispense_pos = (timepoint_pos) - (speed * (dispense_delay_clocks / CLOCKS_PER_LOG));
+				//		(enc ticks @ intersection) - (encoder ticks between disp signal and contact )
+				// dispense_delay_clocks is based on the geometry of the dipense (ie distance and speed that the drop is shooting at)
+
+				if(next_next_pos > dispense_pos) { // dispense comes within the next timebase
+					TIM5->ARR = TIM5->ARR * POST_DISP_LOG_SLOW_FACTOR; // slow down the logging rate after dispense since it is less essential
+
+					/* Insert a marker for when dispense happened */
+					//log_position += 1;
+					//posLog[log_position] = 12345678;
+
+					disp_flag = 1;
+
+					// using this with a third timer is likely the most accurate. allows inter-encoder values
+					clocks_to_disp = clocks_per_encoder_pulse*(dispense_pos-current_pos);
+
+					/* start TIM4 to count to clocks_to_disp */
+					TIM4->CR1  &= ~TIM_CR1_CEN; 	//start counter
+					TIM4->CNT   = 0;				// Reset count
+					TIM4->ARR 	= clocks_to_disp; 	// Update event when we want to dispense
+					TIM4->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
+					TIM4->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
+					TIM4->DIER |=  TIM_DIER_UIE; 	// update interrupt enabled
+					TIM4->CR1  |=  TIM_CR1_ARPE;	// enable auto reload preload
+					TIM4->CR1  |=  TIM_CR1_CEN; 	//start counter
+
+				}
+			}
+
+
 		}
-		speed = running_sum / MOVING_AVG_LENGTH; // speed in pulses per tick
-		nexxt_pos = current_pos + speed;
 
 		TIM5->SR &= ~TIM_SR_UIF; // Clear the TIM5 update flag
-	}
   /* USER CODE END TIM5_IRQn 0 */
   HAL_TIM_IRQHandler(&htim5);
   /* USER CODE BEGIN TIM5_IRQn 1 */

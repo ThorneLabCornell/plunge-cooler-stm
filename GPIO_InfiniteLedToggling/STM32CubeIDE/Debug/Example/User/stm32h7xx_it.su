@@ -1,0 +1,9 @@
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:49:6:NMI_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:58:6:HardFault_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:71:6:MemManage_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:84:6:BusFault_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:97:6:UsageFault_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:110:6:SVC_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:119:6:DebugMon_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:128:6:PendSV_Handler	4	static
+C:/Users/Leo/STM32CubeIDE/new_workspace/GPIO_InfiniteLedToggling/Src/stm32h7xx_it.c:137:6:SysTick_Handler	4	static

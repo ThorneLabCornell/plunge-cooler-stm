@@ -1,0 +1,10 @@
+17:39:02 **** Build of configuration Debug for project GPIO_InfiniteLedToggling ****
+make -j16 all 
+arm-none-eabi-size   GPIO_InfiniteLedToggling.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3224	     12	   1564	   4800	   12c0	GPIO_InfiniteLedToggling.elf
+Finished building: default.size.stdout
+ 
+
+17:39:03 Build Finished. 0 errors, 0 warnings. (took 232ms)
+

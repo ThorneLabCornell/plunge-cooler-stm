@@ -1,0 +1,130 @@
+2023-10-27 12:29:08,824 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 741488104 Bytes (1072693248)
+2023-10-27 12:29:10,263 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 807835984 Bytes (1072693248)
+2023-10-27 12:29:10,402 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 885956944 Bytes (1072693248)
+2023-10-27 12:29:10,650 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_HS
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-10-27 12:29:10,651 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-10-27 12:29:10,652 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-10-27 12:29:10,871 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp_save
+2023-10-27 12:29:10,980 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp
+2023-10-27 12:29:11,049 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp_save
+2023-10-27 12:29:11,140 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp
+2023-10-27 12:29:11,650 [WARN] IPConfigManager:99 - WARNING: Missing Config File for USB ip!!
+2023-10-27 12:29:11,744 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp_save
+2023-10-27 12:29:11,873 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp
+2023-10-27 12:29:11,911 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c_save
+2023-10-27 12:29:12,078 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c
+2023-10-27 12:29:12,094 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h_save
+2023-10-27 12:29:12,171 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h
+2023-10-27 12:29:12,327 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c_save
+2023-10-27 12:29:12,447 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c
+2023-10-27 12:29:12,461 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp_save
+2023-10-27 12:29:12,523 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp
+2023-10-27 12:29:12,546 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h_save
+2023-10-27 12:29:12,634 [INFO] CodeEngine:335 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h
+2023-10-27 12:29:12,671 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-10-27 12:29:12,671 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-10-27 12:29:12,673 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 12:29:12,673 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 12:29:12,693 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h_save
+2023-10-27 12:29:12,791 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h
+2023-10-27 12:29:12,809 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c_save
+2023-10-27 12:29:12,938 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c
+2023-10-27 12:29:13,551 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 197mS.
+2023-10-27 12:29:13,554 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-10-27 12:29:13,806 [INFO] ConfigFileManager:1483 - The Die is : DIE480
+2023-10-27 12:29:15,496 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 1942mS.
+2023-10-27 12:29:15,497 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 1mS.
+2023-10-27 12:29:15,499 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-10-27 12:29:23,067 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 725002840 Bytes (1073741824)
+2023-10-27 12:29:23,650 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 756396480 Bytes (1073741824)
+2023-10-27 12:29:23,781 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 790999488 Bytes (1073741824)
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_HS
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-10-27 12:29:23,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-10-27 12:29:23,997 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-10-27 12:29:23,998 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-10-27 12:29:24,212 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp_save
+2023-10-27 12:29:24,292 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp
+2023-10-27 12:29:24,349 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp_save
+2023-10-27 12:29:24,462 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp
+2023-10-27 12:29:24,798 [WARN] IPConfigManager:99 - WARNING: Missing Config File for USB ip!!
+2023-10-27 12:29:24,870 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp_save
+2023-10-27 12:29:24,953 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp
+2023-10-27 12:29:24,980 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c_save
+2023-10-27 12:29:25,087 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c
+2023-10-27 12:29:25,098 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h_save
+2023-10-27 12:29:25,171 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h
+2023-10-27 12:29:25,301 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c_save
+2023-10-27 12:29:25,435 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c
+2023-10-27 12:29:25,439 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp_save
+2023-10-27 12:29:25,507 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp
+2023-10-27 12:29:25,521 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h_save
+2023-10-27 12:29:25,623 [INFO] CodeEngine:335 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h
+2023-10-27 12:29:25,659 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-10-27 12:29:25,659 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-10-27 12:29:25,660 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 12:29:25,660 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 12:29:25,673 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h_save
+2023-10-27 12:29:25,756 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h
+2023-10-27 12:29:25,767 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c_save
+2023-10-27 12:29:25,887 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c
+2023-10-27 12:29:26,442 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 152mS.
+2023-10-27 12:29:26,446 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-10-27 12:29:26,711 [INFO] ConfigFileManager:1483 - The Die is : DIE480
+2023-10-27 12:29:27,698 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 1253mS.
+2023-10-27 12:29:27,699 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 1mS.
+2023-10-27 12:29:27,701 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-10-27 13:27:54,194 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 698429928 Bytes (1073741824)
+2023-10-27 13:27:55,252 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 743518680 Bytes (1073741824)
+2023-10-27 13:27:55,362 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 825307728 Bytes (1073741824)
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_HS
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-10-27 13:27:55,533 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-10-27 13:27:55,534 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-10-27 13:27:55,534 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-10-27 13:27:55,709 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp_save
+2023-10-27 13:27:55,787 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp
+2023-10-27 13:27:55,834 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp_save
+2023-10-27 13:27:55,954 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp
+2023-10-27 13:27:56,194 [WARN] IPConfigManager:99 - WARNING: Missing Config File for USB ip!!
+2023-10-27 13:27:56,249 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp_save
+2023-10-27 13:27:56,321 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp
+2023-10-27 13:27:56,343 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c_save
+2023-10-27 13:27:56,490 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c
+2023-10-27 13:27:56,506 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h_save
+2023-10-27 13:27:56,574 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h
+2023-10-27 13:27:56,689 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c_save
+2023-10-27 13:27:56,769 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c
+2023-10-27 13:27:56,772 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp_save
+2023-10-27 13:27:56,831 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp
+2023-10-27 13:27:56,842 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h_save
+2023-10-27 13:27:56,913 [INFO] CodeEngine:335 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h
+2023-10-27 13:27:56,941 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-10-27 13:27:56,941 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-10-27 13:27:56,942 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 13:27:56,942 [WARN] CodeGenerator:3754 - IP not found : null
+2023-10-27 13:27:56,952 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h_save
+2023-10-27 13:27:57,036 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h
+2023-10-27 13:27:57,049 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c_save
+2023-10-27 13:27:57,145 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c
+2023-10-27 13:27:57,610 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 141mS.
+2023-10-27 13:27:57,614 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-10-27 13:27:57,858 [INFO] ConfigFileManager:1483 - The Die is : DIE480
+2023-10-27 13:27:58,739 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 1125mS.
+2023-10-27 13:27:58,740 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 1mS.
+2023-10-27 13:27:58,742 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.

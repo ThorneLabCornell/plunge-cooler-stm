@@ -1,0 +1,5 @@
+stm32h7xx_hal_msp.c:64:6:HAL_MspInit	1
+stm32h7xx_hal_msp.c:85:6:HAL_TIM_Encoder_MspInit	3
+stm32h7xx_hal_msp.c:143:6:HAL_TIM_Encoder_MspDeInit	2
+stm32h7xx_hal_msp.c:177:6:HAL_UART_MspInit	5
+stm32h7xx_hal_msp.c:268:6:HAL_UART_MspDeInit	3

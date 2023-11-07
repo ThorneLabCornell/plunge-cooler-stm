@@ -1,0 +1,17 @@
+/*
+ * globals.h
+ *
+ *  Created on: Oct 26, 2023
+ *      Author: Leo
+ */
+
+#ifndef SRC_GLOBALS_H_
+#define SRC_GLOBALS_H_
+
+#define LOG_SIZE 10000
+extern uint32_t posLog[LOG_SIZE];
+extern uint32_t log_position;
+extern uint32_t running_sum;
+
+
+#endif /* SRC_GLOBALS_H_ */
