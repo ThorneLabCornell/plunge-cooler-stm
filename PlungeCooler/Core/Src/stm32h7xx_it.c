@@ -222,7 +222,9 @@ void TIM2_IRQHandler(void)
 
 		plunge_done_flag = 1;
 
-		TIM2->SR &= ~TIM_SR_UIF; 	// Clear the interrupt flag
+		TIM2->CR1  |= TIM_CR1_UDIS;	// make sure update is enabled
+		TIM2->DIER &=  ~TIM_DIER_UIE; 	// update interrupt enabled
+		TIM2->CR1 &= ~TIM_CR1_CEN;
 		//TIM2->ARR = 999999;			//massive so that we dont hit it when we try to move around. later i can just diable timer but for debugging i want to preserve tim2->cnt
     }
   /* USER CODE END TIM2_IRQn 0 */
@@ -240,13 +242,12 @@ void TIM4_IRQHandler(void)
   /* USER CODE BEGIN TIM4_IRQn 0 */
 	if ((TIM4->SR & TIM_SR_UIF) != 0) {
 		DEPOSITED = 1;
+		dispense();
 		TIM4->DIER &=  ~TIM_DIER_UIE; 	// update interrupt disabled
-
-		//TIM4->CR1 &= ~TIM_CR1_CEN; 	// only fire this timer once
+		TIM4->CR1 &= ~TIM_CR1_CEN; 	// only fire this timer once
 	}
   /* USER CODE END TIM4_IRQn 0 */
   HAL_TIM_IRQHandler(&htim4);
-
   /* USER CODE BEGIN TIM4_IRQn 1 */
 
   /* USER CODE END TIM4_IRQn 1 */

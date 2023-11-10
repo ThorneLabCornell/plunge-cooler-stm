@@ -8,6 +8,6 @@ stm32h7xx_it.c:167:6:DebugMon_Handler	1
 stm32h7xx_it.c:180:6:PendSV_Handler	1
 stm32h7xx_it.c:193:6:SysTick_Handler	1
 stm32h7xx_it.c:214:6:TIM2_IRQHandler	2
-stm32h7xx_it.c:238:6:TIM4_IRQHandler	2
-stm32h7xx_it.c:258:6:USART3_IRQHandler	1
-stm32h7xx_it.c:272:6:TIM5_IRQHandler	4
+stm32h7xx_it.c:240:6:TIM4_IRQHandler	2
+stm32h7xx_it.c:259:6:USART3_IRQHandler	1
+stm32h7xx_it.c:273:6:TIM5_IRQHandler	4

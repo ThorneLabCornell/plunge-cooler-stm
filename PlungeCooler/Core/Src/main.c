@@ -84,6 +84,8 @@ uint8_t  DEPOSITED = 0;
 uint32_t clocks_to_disp = 0;
 
 
+uint8_t val = 1;
+
 uint8_t rxBuffer[100];
 
 uint8_t uartRxBuffer[100];
@@ -179,14 +181,21 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 void rx_handle(void) {
 	char num[30];
-	sprintf(num, "RX0: %d\r\n", rxBuffer[0]);
-	HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+
+	HAL_GPIO_WritePin(GPIOE, LD2_Pin, val);
+	if(val)
+		val = 0;
+	else
+		val = 1;
+	//sprintf(num, "RX0: %d\r\n", rxBuffer[0]);
+	//HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
 	switch(rxBuffer[0]) {
     	case MOVE: ;
 			uint32_t amount = (rxBuffer[2]-48) << 24 | (rxBuffer[3]-48) << 16 | (rxBuffer[4]-48) << 8 | (rxBuffer[5]-48);
 			char response[100];
-			sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
-			HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
+			//sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
+			//HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
 
 			switch(rxBuffer[1]) {
 				case UP: ;
@@ -232,8 +241,8 @@ void rx_handle(void) {
 			}
 
 			char num[30];
-			sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
-			HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
+//			sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+	//		HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
 
 			/***TODO: figure out what angle to tilt to given timepoint_pos***/
 
@@ -247,13 +256,12 @@ void rx_handle(void) {
 			//						    us								mm						mm/s	   s->us
 			dispense_delay_clocks = 10000;//(DISPENSE_LATENCY + (TARGET_DIST_ORTH*cos(tiltPos*M_PI/180))/DROP_SPEED*1000*1000)*US_TO_TICKS;
 			// ^ delay in ticks between dispensing and drop hit target in x direction
-			sprintf(num, "dispense_delay_clocks: %d\r\n", (int)dispense_delay_clocks);
-			HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
 
 
 			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 
 
+			/* configure tim4 for final dispense timing */
 			TIM4->CR1  &= ~TIM_CR1_CEN;
 
 			TIM4->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
@@ -263,13 +271,11 @@ void rx_handle(void) {
 			TIM4->DIER |=  TIM_DIER_UIE; 	// update interrupt enabled
 			TIM4->CR1  |= TIM_CR1_ARPE;		// enable auto reload preload
 
-
-
 			/* configuring encoder counter */
 			TIM2->CR1  &= ~TIM_CR1_CEN;
 
 			TIM2->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
-			TIM2->ARR 	= brake_pos; 	// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
+			TIM2->ARR 	= brake_pos; 		// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
 			TIM2->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
 			TIM2->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
 			TIM2->DIER |=  TIM_DIER_UIE; 	// update interrupt enabled
@@ -291,26 +297,26 @@ void rx_handle(void) {
 
 			/* for debug, transmit encoder position */
 			uint32_t enc_pos;
-			for(int i=0; i<200; i++) {
-				char response[100] = {0};
-				enc_pos = TIM2->CNT;
-				sprintf(response, "enc: %d; disp_f: %d; runsum: %d; tim4: %d; log_pos: %d, clocks_to_disp: %d; disp: %d\r\n", (int)enc_pos, (int)disp_flag, (int)running_sum, (int)TIM4->CNT, (int)log_position, (int)TIM4->ARR, (int)DEPOSITED);
-				HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
-			}
+//			for(int i=0; i<200; i++) {
+//				char response[100] = {0};
+//				enc_pos = TIM2->CNT;
+//				sprintf(response, "enc: %d; disp_f: %d; runsum: %d; tim4: %d; log_pos: %d, clocks_to_disp: %d; disp: %d\r\n", (int)enc_pos, (int)disp_flag, (int)running_sum, (int)TIM4->CNT, (int)log_position, (int)TIM4->ARR, (int)DEPOSITED);
+//				HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
+//			}
 			break;
 
 		case RELEASE: ;
 			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
-			char j[100] = {0};
-			sprintf(j, "RELEASE\r\n");
-			HAL_UART_Transmit(&huart3, (uint8_t*)j, strlen(j), HAL_MAX_DELAY);
+//			char j[100] = {0};
+//			sprintf(j, "RELEASE\r\n");
+//			HAL_UART_Transmit(&huart3, (uint8_t*)j, strlen(j), HAL_MAX_DELAY);
 
 			break;
 		case '5': ;
 			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 0); //engage brake
-			char k[100] = {0};
-			sprintf(k, "BRAKE\r\n");
-			HAL_UART_Transmit(&huart3, (uint8_t*)k, strlen(k), HAL_MAX_DELAY);
+//			char k[100] = {0};
+//			sprintf(k, "BRAKE\r\n");
+//			HAL_UART_Transmit(&huart3, (uint8_t*)k, strlen(k), HAL_MAX_DELAY);
 
 			break;
 		case '6': ;
@@ -320,8 +326,8 @@ void rx_handle(void) {
 			break;
 
     }
-	char b[] = "done handling\r\n";
-	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
+//	char b[] = "done handling\r\n";
+//	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
 
     rx_flag = 0;
     HAL_UART_Receive_IT(&huart3, received_character, 1);
@@ -337,19 +343,6 @@ void rx_handle(void) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
-  /* byte order will be:
-   * 0: move(0x01) or plunge (0x02)
-   * for plunge:
-   * 1/2/3/4: brake posn ticks from current position (must set current to 0)
-   * 5/6/7/8: dispense posn ticks from current position (must set current to 0)
-   * 9/10/11/12: target speed ticks/sec
-   * for move:
-   * 1: action
-   * 2/3/4/5: amount
-   * nothing, enter read loop
-   */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -358,9 +351,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
-
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -380,8 +370,8 @@ int main(void)
 
   HAL_UART_Receive_IT(&huart3, received_character, 1); // initialize interrupts
 
-  char msg[] = "program start \r\n";
-  HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+//  char msg[] = "program start \r\n";
+//  HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
   // TIM2 for encoder tick counting
   NVIC_SetPriority(TIM2_IRQn, 1); // Braking is priority as long as dispense isnt happening
@@ -403,32 +393,31 @@ int main(void)
   while(1) {
 	  if(rx_flag) rx_handle();
 
-//	  if(disp_flag) {
-//		  while(1) {
-//			  // depending on the latency of this loop the -1 could be advantageous, need to be a -2, or be disadvantageous (if we capture every encoder pulse)
-//			  if(TIM2->CNT >= dispense_pos - 1) { //if we are at dispense position.
-//				  dispense();
-//			  }
-//		  }
-//	  }
 
 	  if(plunge_done_flag) {
-		  char rn[] = {'\r', '\n'};
-		  HAL_UART_Transmit(&huart3, (uint8_t*)ACK, 3, HAL_MAX_DELAY);
+		  char rn[] = "\r\n";
+		  uint8_t bytes[4];
+		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		  for(int i=0 ; i<log_position; i++) {
-			  HAL_UART_Transmit(&huart3, (uint8_t*)posLog[i], 4, HAL_MAX_DELAY);
+			  bytes[0] = ((posLog[i] >> 24) 	& 0xFF);
+			  bytes[1] = ((posLog[i] >> 16) 	& 0xFF);
+			  bytes[2] = ((posLog[i] >> 8) 		& 0xFF);
+			  bytes[3] = ((posLog[i])	 		& 0xFF);
+
+			  HAL_UART_Transmit(&huart3, bytes, 4, HAL_MAX_DELAY);
 			  HAL_UART_Transmit(&huart3, (uint8_t*)rn, strlen(rn), HAL_MAX_DELAY);
 		  }
-		  HAL_UART_Transmit(&huart3, (uint8_t*)ACK, 3, HAL_MAX_DELAY);
+
+		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		  plunge_done_flag = 0;
 	  }
-	  if(DEPOSITED) {
-		  char m[]  = "DEPOSITED\r\n";
-		  HAL_UART_Transmit(&huart3, (uint8_t*)m, strlen(m), HAL_MAX_DELAY);
-		  DEPOSITED = 0;
-	  }
+//	  if(DEPOSITED) {
+//		  char m[]  = "DEPOSITED\r\n";
+//		  HAL_UART_Transmit(&huart3, (uint8_t*)m, strlen(m), HAL_MAX_DELAY);
+//		  DEPOSITED = 0;
+//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -542,7 +531,9 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM2_Init 2 */
-
+	TIM2->CR1  |= TIM_CR1_UDIS;	// make sure update is enabled
+	TIM2->DIER &=  ~TIM_DIER_UIE; 	// update interrupt enabled
+	TIM2->CR1 &= ~TIM_CR1_CEN;
   /* USER CODE END TIM2_Init 2 */
 
 }
@@ -746,7 +737,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, LD3_Pin|BRAKE_Pin|PAN_DIR_Pin|PAN_EN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, DROP_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -816,12 +807,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(BRAKE_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : DROP_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = DROP_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

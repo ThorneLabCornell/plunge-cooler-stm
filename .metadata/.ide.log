@@ -1,0 +1,51 @@
+2023-11-08 10:52:14,271 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,484x153,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:15,893 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:18,449 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:20,631 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:26,897 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:29,346 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 10:52:29,990 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-08 13:19:26,526 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 838492464 Bytes (1073741824)
+2023-11-08 13:19:27,251 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 880914688 Bytes (1073741824)
+2023-11-08 13:23:29,229 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 753724144 Bytes (1073741824)
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_HS
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8H7
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-08 13:23:29,777 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-08 13:23:29,778 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-08 13:23:29,781 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-11-08 13:23:30,380 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp_save
+2023-11-08 13:23:30,585 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\license.tmp
+2023-11-08 13:23:30,732 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp_save
+2023-11-08 13:23:30,972 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\gpio.tmp
+2023-11-08 13:23:32,044 [WARN] IPConfigManager:99 - WARNING: Missing Config File for USB ip!!
+2023-11-08 13:23:32,318 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp_save
+2023-11-08 13:23:32,492 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\cortex.tmp
+2023-11-08 13:23:32,567 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c_save
+2023-11-08 13:23:32,948 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_it.c
+2023-11-08 13:23:32,988 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h_save
+2023-11-08 13:23:33,118 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_it.h
+2023-11-08 13:23:33,401 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c_save
+2023-11-08 13:23:33,634 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\stm32h7xx_hal_msp.c
+2023-11-08 13:23:33,664 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp_save
+2023-11-08 13:23:33,778 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\MXTmpFiles\system.tmp
+2023-11-08 13:23:33,819 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h_save
+2023-11-08 13:23:33,979 [INFO] CodeEngine:335 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\stm32h7xx_hal_conf.h
+2023-11-08 13:23:34,114 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-08 13:23:34,114 [WARN] IPConfigManager:3431 - IP not found : USB_OTG
+2023-11-08 13:23:34,127 [WARN] CodeGenerator:3754 - IP not found : null
+2023-11-08 13:23:34,127 [WARN] CodeGenerator:3754 - IP not found : null
+2023-11-08 13:23:34,161 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h_save
+2023-11-08 13:23:34,360 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Inc\main.h
+2023-11-08 13:23:34,498 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c_save
+2023-11-08 13:23:34,735 [INFO] CodeEngine:279 - Generated code: C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\Core\Src\main.c
+2023-11-08 13:23:36,212 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 452mS.
+2023-11-08 13:23:36,218 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-11-08 13:23:36,791 [INFO] ConfigFileManager:1483 - The Die is : DIE480
+2023-11-08 13:23:38,904 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 2685mS.
+2023-11-08 13:23:38,905 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 1mS.
+2023-11-08 13:23:38,910 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.

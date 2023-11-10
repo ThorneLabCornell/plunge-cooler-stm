@@ -7248,3 +7248,1153 @@ Finished building: default.size.stdout
  
 Finished building: PlungeCooler.list
  
+16:18:46 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39848	    132	  42144	  82124	  140cc	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+10:48:48 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:417:42: warning: multi-character character constant [-Wmultichar]
+  417 |     HAL_UART_Transmit(&huart3, (uint8_t*)ACK, 3, HAL_MAX_DELAY);
+      |                                          ^~~
+../Core/Src/main.c:423:42: warning: multi-character character constant [-Wmultichar]
+  423 |     HAL_UART_Transmit(&huart3, (uint8_t*)ACK, 3, HAL_MAX_DELAY);
+      |                                          ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39848	    132	  42144	  82124	  140cc	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+10:58:17 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39816	    132	  42144	  82092	  140ac	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+10:58:27 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-size   PlungeCooler.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39816	    132	  42144	  82092	  140ac	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+11:14:22 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:400:17: warning: multi-character character constant [-Wmultichar]
+  400 |     char rn[] = '\r\n';
+      |                 ^~~~~~
+../Core/Src/main.c:400:17: error: invalid initializer
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:15:02 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39820	    132	  42144	  82096	  140b0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+11:15:08 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-size   PlungeCooler.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39820	    132	  42144	  82096	  140b0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+11:17:05 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-size   PlungeCooler.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39820	    132	  42144	  82096	  140b0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+11:23:01 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39876	    132	  42144	  82152	  140e8	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+11:24:50 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:403:36: warning: suggest parentheses around '+' in operand of '&' [-Wparentheses]
+  403 |      bytes[0] = (posLog[i] >> 24)  & 0xFF + '0';
+      |                                    ^
+../Core/Src/main.c:404:36: warning: suggest parentheses around '+' in operand of '&' [-Wparentheses]
+  404 |      bytes[0] = (posLog[i] >> 16)  & 0xFF + '0';
+      |                                    ^
+../Core/Src/main.c:405:35: warning: suggest parentheses around '+' in operand of '&' [-Wparentheses]
+  405 |      bytes[0] = (posLog[i] >> 8)  & 0xFF + '0';
+      |                                   ^
+../Core/Src/main.c:406:31: warning: suggest parentheses around '+' in operand of '&' [-Wparentheses]
+  406 |      bytes[0] = (posLog[i])   & 0xFF + '0';
+      |                               ^
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39900	    132	  42144	  82176	  14100	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+11:26:44 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39892	    132	  42144	  82168	  140f8	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+12:14:58 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39884	    132	  42144	  82160	  140f0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+12:15:06 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-size   PlungeCooler.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39884	    132	  42144	  82160	  140f0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+12:15:50 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:138:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  138 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:139:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  139 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:401:13: warning: variable 'bytes' set but not used [-Wunused-but-set-variable]
+  401 |     uint8_t bytes[4];
+      |             ^~~~~
+../Core/Src/main.c:400:10: warning: unused variable 'rn' [-Wunused-variable]
+  400 |     char rn[] = "\r\n";
+      |          ^~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39836	    132	  42144	  82112	  140c0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+12:16:35 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39852	    132	  42144	  82128	  140d0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+13:31:52 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/globals.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/globals.d" -MT"Core/Src/globals.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/globals.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:140:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3214602' to '10' [-Woverflow]
+  140 | #define ACK '1\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:141:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '3149066' to '10' [-Woverflow]
+  141 | #define BAD '0\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:30: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                             ~^                          ~~~~~~~~~
+      |                              |                          |
+      |                              int                        uint32_t {aka long unsigned int}
+      |                             %ld
+../Core/Src/main.c:235:49: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                ~^                  ~~~~~~~~~~~~~
+      |                                                 |                  |
+      |                                                 int                uint32_t {aka long unsigned int}
+      |                                                %ld
+../Core/Src/main.c:318:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:318:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:393:13: warning: variable 'bytes' set but not used [-Wunused-but-set-variable]
+  393 |     uint8_t bytes[4];
+      |             ^~~~~
+../Core/Src/main.c:392:10: warning: unused variable 'rn' [-Wunused-variable]
+  392 |     char rn[] = "\r\n";
+      |          ^~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:235:50: warning: '
+   ' directive writing 2 bytes into a region of size 0 [-Wformat-overflow=]
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |                                                  ^~~~
+../Core/Src/main.c:235:4: note: 'sprintf' output between 33 and 53 bytes into a destination of size 30
+  235 |    sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39852	    132	  42144	  82128	  140d0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+13:34:07 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/globals.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/globals.d" -MT"Core/Src/globals.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/globals.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39852	    132	  42144	  82128	  140d0	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+13:44:03 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39924	    132	  42144	  82200	  14118	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+16:24:28 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/globals.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/globals.d" -MT"Core/Src/globals.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/globals.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c:93:22: warning: multi-character character constant [-Wmultichar]
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:140:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '5901578' to '10' [-Woverflow]
+  140 | #define ACK 'Z\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:93:22: note: in expansion of macro 'ACK'
+   93 | uint8_t tx_ack[3] = {ACK, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c:94:22: warning: multi-character character constant [-Wmultichar]
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:141:13: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '5770506' to '10' [-Woverflow]
+  141 | #define BAD 'X\r\n'
+      |             ^~~~~~~
+../Core/Src/main.c:94:22: note: in expansion of macro 'BAD'
+   94 | uint8_t tx_bad[3] = {BAD, '\r', '\n'};
+      |                      ^~~
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:316:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:316:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:291:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  291 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:235:9: warning: unused variable 'num' [-Wunused-variable]
+  235 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:188:9: warning: unused variable 'response' [-Wunused-variable]
+  188 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:181:7: warning: unused variable 'num' [-Wunused-variable]
+  181 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39412	    132	  42144	  81688	  13f18	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+16:25:21 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/globals.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/globals.d" -MT"Core/Src/globals.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/globals.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39412	    132	  42144	  81688	  13f18	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+16:47:23 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/globals.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/globals.d" -MT"Core/Src/globals.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/globals.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:316:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:316:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:291:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  291 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:235:9: warning: unused variable 'num' [-Wunused-variable]
+  235 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:188:9: warning: unused variable 'response' [-Wunused-variable]
+  188 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:181:7: warning: unused variable 'num' [-Wunused-variable]
+  181 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39348	    132	  42144	  81624	  13ed8	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:16:08 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:316:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:316:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:291:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  291 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:235:9: warning: unused variable 'num' [-Wunused-variable]
+  235 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:188:9: warning: unused variable 'response' [-Wunused-variable]
+  188 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:181:7: warning: unused variable 'num' [-Wunused-variable]
+  181 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39216	    132	  42144	  81492	  13e54	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:16:44 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:316:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:316:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  316 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:291:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  291 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:235:9: warning: unused variable 'num' [-Wunused-variable]
+  235 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:188:9: warning: unused variable 'response' [-Wunused-variable]
+  188 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:181:7: warning: unused variable 'num' [-Wunused-variable]
+  181 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39156	    132	  42144	  81432	  13e18	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:32:24 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:317:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  317 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:317:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  317 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:292:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  292 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:236:9: warning: unused variable 'num' [-Wunused-variable]
+  236 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:189:9: warning: unused variable 'response' [-Wunused-variable]
+  189 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:181:7: warning: unused variable 'num' [-Wunused-variable]
+  181 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39172	    132	  42144	  81448	  13e28	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:33:45 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:324:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:324:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:299:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  299 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:243:9: warning: unused variable 'num' [-Wunused-variable]
+  243 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:196:9: warning: unused variable 'response' [-Wunused-variable]
+  196 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:183:7: warning: unused variable 'num' [-Wunused-variable]
+  183 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39204	    136	  42144	  81484	  13e4c	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:12:57 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:324:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:324:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:299:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  299 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:243:9: warning: unused variable 'num' [-Wunused-variable]
+  243 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:196:9: warning: unused variable 'response' [-Wunused-variable]
+  196 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:183:7: warning: unused variable 'num' [-Wunused-variable]
+  183 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39220	    136	  42144	  81500	  13e5c	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:23:45 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39236	    136	  42144	  81516	  13e6c	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 
+17:51:33 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/main.c: In function 'rx_handle':
+../Core/Src/main.c:324:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                   ~^
+      |                                    |
+      |                                    int
+      |                                   %ld
+../Core/Src/main.c:324:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+      |                                                     ~^                  ~~~~~~~~~~~~~~
+      |                                                      |                  |
+      |                                                      int                uint32_t {aka long unsigned int}
+      |                                                     %ld
+../Core/Src/main.c:299:13: warning: unused variable 'enc_pos' [-Wunused-variable]
+  299 |    uint32_t enc_pos;
+      |             ^~~~~~~
+../Core/Src/main.c:243:9: warning: unused variable 'num' [-Wunused-variable]
+  243 |    char num[30];
+      |         ^~~
+../Core/Src/main.c:196:9: warning: unused variable 'response' [-Wunused-variable]
+  196 |    char response[100];
+      |         ^~~~~~~~
+../Core/Src/main.c:183:7: warning: unused variable 'num' [-Wunused-variable]
+  183 |  char num[30];
+      |       ^~~
+arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PlungeCooler.elf
+ 
+arm-none-eabi-size   PlungeCooler.elf 
+arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
+   text	   data	    bss	    dec	    hex	filename
+  39284	    136	  42144	  81564	  13e9c	PlungeCooler.elf
+Finished building: default.size.stdout
+ 
+Finished building: PlungeCooler.list
+ 

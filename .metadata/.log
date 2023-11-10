@@ -523,3 +523,441 @@ java.util.concurrent.TimeoutException
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:49:01.900
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ThreadVMNode.updatePropertiesInSessionThread(ThreadVMNode.java:322)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractThreadVMNode$3.run(AbstractThreadVMNode.java:165)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:49:03.916
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ThreadVMNode.updatePropertiesInSessionThread(ThreadVMNode.java:326)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractThreadVMNode$3.run(AbstractThreadVMNode.java:165)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:54:21.242
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:54:23.254
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:54:34.865
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 10:54:36.874
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:05:41.362
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:05:43.367
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:05:55.586
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:05:57.592
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:09:02.799
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:09:04.837
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:10:53.012
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:10:55.026
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:15:18.985
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:15:20.996
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:15:54.694
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:15:56.695
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:16:09.072
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:16:11.076
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:16:27.169
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.getPinElementColorDescriptor(PinCloneUtils.java:227)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:321)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 4 2023-11-08 11:16:29.176
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:127)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getData(GdbPinProvider.java:151)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.getCombinedLabels(GdbPinProvider.java:176)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.GdbPinProvider.isPinnedTo(GdbPinProvider.java:262)
+	at org.eclipse.cdt.debug.internal.ui.pinclone.PinCloneUtils.isPinnedTo(PinCloneUtils.java:261)
+	at org.eclipse.cdt.dsf.gdb.internal.ui.viewmodel.launch.ContainerVMNode.updatePropertiesInSessionThread(ContainerVMNode.java:325)
+	at org.eclipse.cdt.dsf.debug.ui.viewmodel.launch.AbstractContainerVMNode$2.run(AbstractContainerVMNode.java:138)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.ui 4 0 2023-11-08 16:14:23.500
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element main.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:485)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:583)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:65)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:346)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:613)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:641)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:365)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:79)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-11-08 16:14:23.500
+!MESSAGE Element main.c does not exist.
+
+!ENTRY org.eclipse.cdt.ui 4 0 2023-11-08 16:25:16.104
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element globals.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:485)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:583)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:65)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:346)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:613)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:641)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:365)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:79)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-11-08 16:25:16.104
+!MESSAGE Element globals.c does not exist.

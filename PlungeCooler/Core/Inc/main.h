@@ -116,6 +116,8 @@ void Error_Handler(void);
 #define PAN_DIR_GPIO_Port GPIOB
 #define PAN_EN_Pin GPIO_PIN_9
 #define PAN_EN_GPIO_Port GPIOB
+#define DROP_Pin GPIO_PIN_0
+#define DROP_GPIO_Port GPIOE
 #define LD2_Pin GPIO_PIN_1
 #define LD2_GPIO_Port GPIOE
 
@@ -135,8 +137,8 @@ void Error_Handler(void);
 #define PAN_DEG_TO_STEPS 200
 #define TILT_DEG_TO_STEPS 200
 
-#define ACK '1\r\n'
-#define BAD '0\r\n'
+#define ACK 'Z'
+#define BAD 'X'
 
 #define MOVE '1'
 #define PLUNGE '2'
