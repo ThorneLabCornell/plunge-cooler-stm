@@ -1,43 +1,10 @@
-17:51:33 **** Incremental Build of configuration Debug for project PlungeCooler ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
-../Core/Src/main.c: In function 'rx_handle':
-../Core/Src/main.c:324:36: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'volatile long unsigned int'} [-Wformat=]
-  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
-      |                                   ~^
-      |                                    |
-      |                                    int
-      |                                   %ld
-../Core/Src/main.c:324:54: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  324 |    sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
-      |                                                     ~^                  ~~~~~~~~~~~~~~
-      |                                                      |                  |
-      |                                                      int                uint32_t {aka long unsigned int}
-      |                                                     %ld
-../Core/Src/main.c:299:13: warning: unused variable 'enc_pos' [-Wunused-variable]
-  299 |    uint32_t enc_pos;
-      |             ^~~~~~~
-../Core/Src/main.c:243:9: warning: unused variable 'num' [-Wunused-variable]
-  243 |    char num[30];
-      |         ^~~
-../Core/Src/main.c:196:9: warning: unused variable 'response' [-Wunused-variable]
-  196 |    char response[100];
-      |         ^~~~~~~~
-../Core/Src/main.c:183:7: warning: unused variable 'num' [-Wunused-variable]
-  183 |  char num[30];
-      |       ^~~
-arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PlungeCooler.elf
- 
+19:01:32 **** Incremental Build of configuration Debug for project PlungeCooler ****
+make -j4 all 
 arm-none-eabi-size   PlungeCooler.elf 
-arm-none-eabi-objdump -h -S  PlungeCooler.elf  > "PlungeCooler.list"
    text	   data	    bss	    dec	    hex	filename
-  39284	    136	  42144	  81564	  13e9c	PlungeCooler.elf
+  39168	    116	  42456	  81740	  13f4c	PlungeCooler.elf
 Finished building: default.size.stdout
  
-Finished building: PlungeCooler.list
- 
 
-17:51:37 Build Finished. 0 errors, 6 warnings. (took 4s.400ms)
+19:01:32 Build Finished. 0 errors, 0 warnings. (took 377ms)
 

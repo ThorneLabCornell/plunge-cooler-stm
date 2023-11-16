@@ -218,7 +218,7 @@ void TIM2_IRQHandler(void)
 	if ((TIM2->SR & TIM_SR_UIF) != 0) { // check if update interrupt occured
 		HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 0); //engage brake
 		posn_braked_at = TIM2->CNT;
-		//also somehow stop motor
+		//also somehow make sure motor is stopped
 
 		plunge_done_flag = 1;
 

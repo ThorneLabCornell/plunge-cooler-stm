@@ -134,8 +134,8 @@ void Error_Handler(void);
 #define DIR_TILT_DOWN 0
 #define PAN_SWITCH_POS 1000
 #define TILT_SWITCH_POS 1000
-#define PAN_DEG_TO_STEPS 200
-#define TILT_DEG_TO_STEPS 200
+#define PAN_DEG_TO_STEPS 200*64
+#define TILT_DEG_TO_STEPS 200*64
 
 #define ACK 'Z'
 #define BAD 'X'

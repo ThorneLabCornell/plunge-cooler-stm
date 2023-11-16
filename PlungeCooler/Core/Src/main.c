@@ -180,7 +180,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 
 void rx_handle(void) {
-	char num[30];
 	HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 	HAL_GPIO_WritePin(GPIOE, LD2_Pin, val);
@@ -194,8 +193,8 @@ void rx_handle(void) {
     	case MOVE: ;
 			uint32_t amount = (rxBuffer[2]-48) << 24 | (rxBuffer[3]-48) << 16 | (rxBuffer[4]-48) << 8 | (rxBuffer[5]-48);
 			char response[100];
-			//sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
-			//HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
+			sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
+			HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
 
 			switch(rxBuffer[1]) {
 				case UP: ;
@@ -240,7 +239,7 @@ void rx_handle(void) {
 				 }
 			}
 
-			char num[30];
+//			char num[30];
 //			sprintf(num, "brake_pos: %d, timepoint_pos: %d\r\n", brake_pos, timepoint_pos);
 	//		HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
 
@@ -296,7 +295,7 @@ void rx_handle(void) {
 			TIM5->CR1  |= TIM_CR1_CEN; // Start TIM5 to commence data collection
 
 			/* for debug, transmit encoder position */
-			uint32_t enc_pos;
+//			uint32_t enc_pos;
 //			for(int i=0; i<200; i++) {
 //				char response[100] = {0};
 //				enc_pos = TIM2->CNT;
@@ -321,8 +320,8 @@ void rx_handle(void) {
 			break;
 		case '6': ;
 			char lm[100] = {0};
-			sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
-			HAL_UART_Transmit(&huart3, (uint8_t*)lm, strlen(lm), HAL_MAX_DELAY);
+			//sprintf(lm, "current position: %d\r\n braked at: %d\r\n", TIM2->CNT, posn_braked_at);
+			//HAL_UART_Transmit(&huart3, (uint8_t*)lm, strlen(lm), HAL_MAX_DELAY);
 			break;
 
     }
