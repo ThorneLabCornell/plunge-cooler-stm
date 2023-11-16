@@ -961,6 +961,7 @@ C Model Exception: C Model Status [Element globals.c does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-11-08 16:25:16.104
 !MESSAGE Element globals.c does not exist.
+<<<<<<< HEAD
 !SESSION 2023-11-10 11:47:55.168 -----------------------------------------------
 eclipse.buildId=Version 1.13.2
 java.version=17.0.6
@@ -1113,6 +1114,10 @@ C Model Exception: C Model Status [Element system_stm32h7xx.c does not exist.]
 !MESSAGE Started RMI Server, listening on port 41337
 
 !ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2023-11-10 15:12:46.956
+=======
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2023-11-10 15:26:19.952
+>>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
 !MESSAGE Error in final launch sequence:
 
 Failed to execute MI command:
@@ -1131,15 +1136,26 @@ localhost:61234: Connection timed out.
 	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
 	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
 	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:334)
+<<<<<<< HEAD
 	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:806)
 	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:717)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
+=======
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+>>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 Caused by: java.lang.Exception: localhost:61234: Connection timed out.
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+<<<<<<< HEAD
 !SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2023-11-10 15:12:46.956
+=======
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2023-11-10 15:26:19.953
+>>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
 !MESSAGE Failed to execute MI command:
 target remote localhost:61234
 
@@ -1149,6 +1165,7 @@ localhost:61234: Connection timed out.
 java.lang.Exception: localhost:61234: Connection timed out.
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2023-11-10 15:15:19.108
 !MESSAGE Error in final launch sequence:
@@ -2063,3 +2080,5 @@ org.eclipse.swt.SWTException: Graphic is disposed
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+=======
+>>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
