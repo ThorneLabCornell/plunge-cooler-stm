@@ -224,7 +224,9 @@ void TIM2_IRQHandler(void)
 
 		TIM2->CR1  |= TIM_CR1_UDIS;	// make sure update is enabled
 		TIM2->DIER &=  ~TIM_DIER_UIE; 	// update interrupt enabled
-		TIM2->CR1 &= ~TIM_CR1_CEN;
+		TIM2->CR1 &= ~TIM_CR1_CEN;		// disable tim2
+		TIM5->CR1  &= ~TIM_CR1_CEN; 	// disable tim5
+
 		//TIM2->ARR = 999999;			//massive so that we dont hit it when we try to move around. later i can just diable timer but for debugging i want to preserve tim2->cnt
     }
   /* USER CODE END TIM2_IRQn 0 */
@@ -273,8 +275,8 @@ void USART3_IRQHandler(void)
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
-		/* always dot he logging portion */
-		/* TODO: Convert this datalogging to DMA to speed it up. actually a priority I think it would have big preformance gains*/
+		/* always do the logging portion */
+		/* TODO: Convert this datalogging to DMA to speed it up. actually a priority I think it would have big performance gains*/
 		log_position += 1; // increment number of data points taken
 		current_pos = TIM2->CNT;
 		posLog[log_position] = current_pos; // update log of positions
@@ -297,7 +299,7 @@ void TIM5_IRQHandler(void)
 				// dispense_delay_clocks is based on the geometry of the dipense (ie distance and speed that the drop is shooting at)
 
 				if(next_next_pos > dispense_pos) { // dispense comes within the next timebase
-					TIM5->ARR = TIM5->ARR * POST_DISP_LOG_SLOW_FACTOR; // slow down the logging rate after dispense since it is less essential
+//					TIM5->ARR = TIM5->ARR * POST_DISP_LOG_SLOW_FACTOR; // slow down the logging rate after dispense since it is less essential
 
 					/* Insert a marker for when dispense happened */
 					//log_position += 1;
@@ -309,7 +311,7 @@ void TIM5_IRQHandler(void)
 					clocks_to_disp = clocks_per_encoder_pulse*(dispense_pos-current_pos);
 
 					/* start TIM4 to count to clocks_to_disp */
-					TIM4->CR1  &= ~TIM_CR1_CEN; 	//start counter
+					TIM4->CR1  &= ~TIM_CR1_CEN; 	//stop counter
 					TIM4->CNT   = 0;				// Reset count
 					TIM4->ARR 	= clocks_to_disp; 	// Update event when we want to dispense
 					TIM4->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag

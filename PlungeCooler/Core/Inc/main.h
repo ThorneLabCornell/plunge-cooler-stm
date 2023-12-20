@@ -82,16 +82,26 @@ void Error_Handler(void);
 #define PH0_MCU_GPIO_Port GPIOH
 #define PH1_MCU_Pin GPIO_PIN_1
 #define PH1_MCU_GPIO_Port GPIOH
+#define PAN_EN_Pin GPIO_PIN_0
+#define PAN_EN_GPIO_Port GPIOC
+#define TILT_EN_Pin GPIO_PIN_2
+#define TILT_EN_GPIO_Port GPIOC
+#define TILT_STP_Pin GPIO_PIN_3
+#define TILT_STP_GPIO_Port GPIOC
 #define PLUNGE_ENC_A_Pin GPIO_PIN_0
 #define PLUNGE_ENC_A_GPIO_Port GPIOA
 #define PLUNGE_ENC_B_Pin GPIO_PIN_1
 #define PLUNGE_ENC_B_GPIO_Port GPIOA
-#define TILT_DIR_Pin GPIO_PIN_5
-#define TILT_DIR_GPIO_Port GPIOA
-#define TILT_EN_Pin GPIO_PIN_6
-#define TILT_EN_GPIO_Port GPIOA
-#define TILT_STP_Pin GPIO_PIN_5
-#define TILT_STP_GPIO_Port GPIOC
+#define PAN_DIR_Pin GPIO_PIN_3
+#define PAN_DIR_GPIO_Port GPIOA
+#define BRAKE_Pin GPIO_PIN_6
+#define BRAKE_GPIO_Port GPIOA
+#define TILT_DIR_Pin GPIO_PIN_1
+#define TILT_DIR_GPIO_Port GPIOB
+#define PAN_STP_Pin GPIO_PIN_11
+#define PAN_STP_GPIO_Port GPIOF
+#define DROP_Pin GPIO_PIN_10
+#define DROP_GPIO_Port GPIOE
 #define LD3_Pin GPIO_PIN_14
 #define LD3_GPIO_Port GPIOB
 #define STLINK_RX_Pin GPIO_PIN_8
@@ -100,8 +110,6 @@ void Error_Handler(void);
 #define STLINK_TX_GPIO_Port GPIOD
 #define USB_FS_OVCR_Pin GPIO_PIN_7
 #define USB_FS_OVCR_GPIO_Port GPIOG
-#define PAN_STP_Pin GPIO_PIN_6
-#define PAN_STP_GPIO_Port GPIOC
 #define USB_FS_VBUS_Pin GPIO_PIN_9
 #define USB_FS_VBUS_GPIO_Port GPIOA
 #define USB_FS_ID_Pin GPIO_PIN_10
@@ -110,14 +118,6 @@ void Error_Handler(void);
 #define USB_FS_N_GPIO_Port GPIOA
 #define USB_FS_P_Pin GPIO_PIN_12
 #define USB_FS_P_GPIO_Port GPIOA
-#define BRAKE_Pin GPIO_PIN_6
-#define BRAKE_GPIO_Port GPIOB
-#define PAN_DIR_Pin GPIO_PIN_8
-#define PAN_DIR_GPIO_Port GPIOB
-#define PAN_EN_Pin GPIO_PIN_9
-#define PAN_EN_GPIO_Port GPIOB
-#define DROP_Pin GPIO_PIN_0
-#define DROP_GPIO_Port GPIOE
 #define LD2_Pin GPIO_PIN_1
 #define LD2_GPIO_Port GPIOE
 
@@ -126,8 +126,8 @@ void Error_Handler(void);
 
 #define PULSES_TO_DEGREES 200
 
-#define PAN_DEFAULT_DELAY 10
-#define TILT_DEFAULT_DELAY 10
+#define PAN_DEFAULT_DELAY 1
+#define TILT_DEFAULT_DELAY 1
 #define DIR_PAN_LEFT 1
 #define DIR_PAN_RIGHT 0
 #define DIR_TILT_UP 1

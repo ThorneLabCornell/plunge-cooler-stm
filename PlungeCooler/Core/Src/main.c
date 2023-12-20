@@ -71,7 +71,7 @@ static void MX_TIM4_Init(void);
 /* USER CODE BEGIN 0 */
 
 /*** GLOBAL VARS ***/
-uint32_t posLog[LOG_SIZE] = {0};
+uint16_t posLog[LOG_SIZE] = {0};
 uint32_t log_position = 0;
 uint32_t running_sum = 0;
 uint32_t timepoint_pos = 0;
@@ -110,8 +110,8 @@ void move_tilt_steps(uint32_t delay, uint8_t dir, uint32_t num_steps) {
 
 
 	}
-	char b[] = "done steps\r\n";
-	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
+//	char b[] = "done steps\r\n";
+//	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
 
 	tiltPos += num_steps * (1 - 2 * dir); // + if dir is 0, else -
 //	HAL_GPIO_WritePin(TILT_EN_GPIO_Port, TILT_EN_Pin, 1);
@@ -131,8 +131,8 @@ void move_pan_steps(uint32_t delay, uint8_t dir, uint32_t num_steps) {
 		HAL_GPIO_WritePin(PAN_STP_GPIO_Port, PAN_STP_Pin, GPIO_PIN_RESET);
 		HAL_Delay(delay);
 	}
-	char b[] = "done steps\r\n";
-	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
+//	char b[] = "done steps\r\n";
+//	HAL_UART_Transmit(&huart3, (uint8_t*)b, strlen(b), HAL_MAX_DELAY);
 
 	panPos += num_steps * (1 - 2 * dir); // + if dir is 0, else -
 //	HAL_GPIO_WritePin(PAN_EN_GPIO_Port, PAN_EN_Pin, 1);
@@ -142,8 +142,8 @@ void move_pan_steps(uint32_t delay, uint8_t dir, uint32_t num_steps) {
 void move_pan_deg(uint32_t degrees, uint8_t dir) {
 	move_pan_steps(PAN_DEFAULT_DELAY, dir, degrees*PAN_DEG_TO_STEPS);
 	char pos[30];
-	sprintf(pos, "panPos: %d\r\n", panPos);
-	HAL_UART_Transmit(&huart3, (uint8_t*)pos, strlen(pos), HAL_MAX_DELAY);
+//	sprintf(pos, "panPos: %d\r\n", panPos);
+//	HAL_UART_Transmit(&huart3, (uint8_t*)pos, strlen(pos), HAL_MAX_DELAY);
 
 }
 
@@ -180,8 +180,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 
 void rx_handle(void) {
-	HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
-
 	HAL_GPIO_WritePin(GPIOE, LD2_Pin, val);
 	if(val)
 		val = 0;
@@ -191,10 +189,17 @@ void rx_handle(void) {
 	//HAL_UART_Transmit(&huart3, (uint8_t*)num, strlen(num), HAL_MAX_DELAY);
 	switch(rxBuffer[0]) {
     	case MOVE: ;
-			uint32_t amount = (rxBuffer[2]-48) << 24 | (rxBuffer[3]-48) << 16 | (rxBuffer[4]-48) << 8 | (rxBuffer[5]-48);
+    		uint32_t amount = 0;
+			for(int i=2; i<=4; i++) {
+				 char digit = rxBuffer[i];
+				 if (digit >= '0' && digit <= '9') {
+					 amount = (amount * 10) + (digit - '0');	// Shift the existing result left by one decimal place and add the digit value
+				 }
+			}
+
 			char response[100];
-			sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
-			HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
+//			sprintf(response, "%c%c received this amount: %d\r\n", (int)rxBuffer[0], (int)rxBuffer[1], (int)amount);
+//			HAL_UART_Transmit(&huart3, (uint8_t*)response, strlen(response), HAL_MAX_DELAY);
 
 			switch(rxBuffer[1]) {
 				case UP: ;
@@ -221,6 +226,8 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
+			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+
 		/* retrieve info */
 			plunge_done_flag = 0;
 
@@ -305,6 +312,8 @@ void rx_handle(void) {
 			break;
 
 		case RELEASE: ;
+			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+
 			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 //			char j[100] = {0};
 //			sprintf(j, "RELEASE\r\n");
@@ -312,6 +321,8 @@ void rx_handle(void) {
 
 			break;
 		case '5': ;
+			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+
 			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 0); //engage brake
 //			char k[100] = {0};
 //			sprintf(k, "BRAKE\r\n");
@@ -394,20 +405,20 @@ int main(void)
 
 
 	  if(plunge_done_flag) {
-		  char rn[] = "\r\n";
-		  uint8_t bytes[4];
 		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
-
+		  char msg[10];
 		  for(int i=0 ; i<log_position; i++) {
-			  bytes[0] = ((posLog[i] >> 24) 	& 0xFF);
-			  bytes[1] = ((posLog[i] >> 16) 	& 0xFF);
-			  bytes[2] = ((posLog[i] >> 8) 		& 0xFF);
-			  bytes[3] = ((posLog[i])	 		& 0xFF);
-
-			  HAL_UART_Transmit(&huart3, bytes, 4, HAL_MAX_DELAY);
-			  HAL_UART_Transmit(&huart3, (uint8_t*)rn, strlen(rn), HAL_MAX_DELAY);
+			  sprintf(msg, "%u\n", posLog[i]);
+//			  bytes[0] = ((posLog[i] >> 24) 	& 0xFF);
+//			  bytes[1] = ((posLog[i] >> 16) 	& 0xFF);
+//			  bytes[2] = ((posLog[i] >> 8) 		& 0xFF);
+//			  bytes[3] = ((posLog[i])	 		& 0xFF);
+//
+//			  HAL_UART_Transmit(&huart3, bytes, 4, HAL_MAX_DELAY);
+//			  HAL_UART_Transmit(&huart3, (uint8_t*)rn, strlen(rn), HAL_MAX_DELAY);
+			  HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 		  }
-
+//
 		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		  plunge_done_flag = 0;
@@ -719,21 +730,21 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(USB_FS_PWR_EN_GPIO_Port, USB_FS_PWR_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOF, USB_FS_PWR_EN_Pin|PAN_STP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, TILT_DIR_Pin|TILT_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, PAN_EN_Pin|TILT_EN_Pin|TILT_STP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, TILT_STP_Pin|PAN_STP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, PAN_DIR_Pin|BRAKE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD3_Pin|BRAKE_Pin|PAN_DIR_Pin|PAN_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, TILT_DIR_Pin|LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, DROP_Pin|LD2_Pin, GPIO_PIN_RESET);
@@ -744,33 +755,47 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : USB_FS_PWR_EN_Pin */
-  GPIO_InitStruct.Pin = USB_FS_PWR_EN_Pin;
+  /*Configure GPIO pins : USB_FS_PWR_EN_Pin PAN_STP_Pin */
+  GPIO_InitStruct.Pin = USB_FS_PWR_EN_Pin|PAN_STP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(USB_FS_PWR_EN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TILT_DIR_Pin TILT_EN_Pin */
-  GPIO_InitStruct.Pin = TILT_DIR_Pin|TILT_EN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : TILT_STP_Pin PAN_STP_Pin */
-  GPIO_InitStruct.Pin = TILT_STP_Pin|PAN_STP_Pin;
+  /*Configure GPIO pins : PAN_EN_Pin TILT_EN_Pin TILT_STP_Pin */
+  GPIO_InitStruct.Pin = PAN_EN_Pin|TILT_EN_Pin|TILT_STP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD3_Pin PAN_DIR_Pin PAN_EN_Pin */
-  GPIO_InitStruct.Pin = LD3_Pin|PAN_DIR_Pin|PAN_EN_Pin;
+  /*Configure GPIO pin : PAN_DIR_Pin */
+  GPIO_InitStruct.Pin = PAN_DIR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(PAN_DIR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BRAKE_Pin */
+  GPIO_InitStruct.Pin = BRAKE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(BRAKE_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : TILT_DIR_Pin LD3_Pin */
+  GPIO_InitStruct.Pin = TILT_DIR_Pin|LD3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DROP_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = DROP_Pin|LD2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_FS_OVCR_Pin */
   GPIO_InitStruct.Pin = USB_FS_OVCR_Pin;
@@ -798,20 +823,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : BRAKE_Pin */
-  GPIO_InitStruct.Pin = BRAKE_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(BRAKE_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : DROP_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = DROP_Pin|LD2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
