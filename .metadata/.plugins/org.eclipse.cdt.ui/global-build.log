@@ -1,11 +1,4 @@
-17:49:01 **** Incremental Build of configuration Debug for project PlungeCooler ****
-make -j4 all 
-arm-none-eabi-size   PlungeCooler.elf 
-   text	   data	    bss	    dec	    hex	filename
-  38912	    116	  62456	 101484	  18c6c	PlungeCooler.elf
-Finished building: default.size.stdout
- 
-17:49:13 **** Incremental Build of configuration Debug for project PlungeCooler ****
+18:41:58 **** Incremental Build of configuration Debug for project PlungeCooler ****
 make -j4 all 
 arm-none-eabi-size   PlungeCooler.elf 
    text	   data	    bss	    dec	    hex	filename
