@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-19:01:32 **** Incremental Build of configuration Debug for project PlungeCooler ****
+17:49:13 **** Incremental Build of configuration Debug for project PlungeCooler ****
 make -j4 all 
-=======
-15:26:38 **** Incremental Build of configuration Debug for project PlungeCooler ****
-make -j16 all 
->>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
 arm-none-eabi-size   PlungeCooler.elf 
    text	   data	    bss	    dec	    hex	filename
-  39168	    116	  42456	  81740	  13f4c	PlungeCooler.elf
+  38912	    116	  62456	 101484	  18c6c	PlungeCooler.elf
 Finished building: default.size.stdout
  
 
-<<<<<<< HEAD
-19:01:32 Build Finished. 0 errors, 0 warnings. (took 377ms)
-=======
-15:26:38 Build Finished. 0 errors, 0 warnings. (took 533ms)
->>>>>>> 2c7137a4e2abd4b01e4b18748e39391dd9acbabf
+17:49:14 Build Finished. 0 errors, 0 warnings. (took 534ms)
 

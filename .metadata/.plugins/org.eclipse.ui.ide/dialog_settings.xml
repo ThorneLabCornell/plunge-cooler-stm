@@ -20,6 +20,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\ret-admin\Documents\GitHub\plunge-cooler-stm"/>
 			<item value="C:\Users\Leo\STM32CubeIDE\new_workspace\PlungeCooler_10-29_3pm"/>
 		</list>
 	</section>
