@@ -226,7 +226,7 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
-//			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		/* retrieve info */
 			plunge_done_flag = 0;

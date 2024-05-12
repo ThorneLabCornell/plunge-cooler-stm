@@ -226,7 +226,7 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
-//			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		/* retrieve info */
 			plunge_done_flag = 0;
@@ -395,7 +395,7 @@ int main(void)
   NVIC_SetPriority(TIM4_IRQn, 0); // Dispense accuracy is top priority
   NVIC_EnableIRQ(TIM4_IRQn);
 
-  HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); // Ensure brake is off
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
