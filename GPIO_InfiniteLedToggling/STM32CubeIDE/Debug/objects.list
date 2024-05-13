@@ -1,8 +1,0 @@
-"./Drivers/CMSIS/system_stm32h7xx.o"
-"./Drivers/STM32H7xx_LL_Driver/stm32h7xx_ll_gpio.o"
-"./Drivers/STM32H7xx_LL_Driver/stm32h7xx_ll_utils.o"
-"./Example/Startup/startup_stm32h7a3zitxq.o"
-"./Example/User/main.o"
-"./Example/User/stm32h7xx_it.o"
-"./Example/User/syscalls.o"
-"./Example/User/sysmem.o"
