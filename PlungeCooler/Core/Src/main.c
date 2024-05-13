@@ -226,6 +226,7 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
+      HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		/* retrieve info */
@@ -262,9 +263,6 @@ void rx_handle(void) {
 			//						    us								mm						mm/s	   s->us
 			dispense_delay_clocks = 10000;//(DISPENSE_LATENCY + (TARGET_DIST_ORTH*cos(tiltPos*M_PI/180))/DROP_SPEED*1000*1000)*US_TO_TICKS;
 			// ^ delay in ticks between dispensing and drop hit target in x direction
-
-
-			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 
 
 			/* configure tim4 for final dispense timing */
