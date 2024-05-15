@@ -226,7 +226,7 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
-      HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
+			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		/* retrieve info */
@@ -416,7 +416,6 @@ int main(void)
 //			  HAL_UART_Transmit(&huart3, (uint8_t*)rn, strlen(rn), HAL_MAX_DELAY);
 			  HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 		  }
-      HAL_Delay(250); // delay for PC to do other tasks
 		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		  plunge_done_flag = 0;
