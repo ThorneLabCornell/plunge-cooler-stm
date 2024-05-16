@@ -268,7 +268,7 @@ void rx_handle(void) {
 			/* configure tim4 for final dispense timing */
 			TIM4->CR1  &= ~TIM_CR1_CEN;
 
-			TIM4->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
+			TIM4->CNT   =  100;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
 			TIM4->ARR 	= brake_pos; 	// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
 			TIM4->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
 			TIM4->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
@@ -278,7 +278,7 @@ void rx_handle(void) {
 			/* configuring encoder counter */
 			TIM2->CR1  &= ~TIM_CR1_CEN;
 
-			TIM2->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
+			TIM2->CNT   =  100;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
 			TIM2->ARR 	= brake_pos; 		// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
 			TIM2->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
 			TIM2->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
@@ -290,7 +290,7 @@ void rx_handle(void) {
 			/* configuring data logging timer */
 			TIM5->CR1  &= ~TIM_CR1_CEN; // Start TIM5 to commence data collection
 
-			TIM5-> CNT  = 0;				//
+			TIM5-> CNT  = 100;				//
 			TIM5->ARR 	= CLOCKS_PER_LOG; 	// check positione interval
 			TIM5->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
 			TIM5->DIER |=  TIM_DIER_UIE; 	// update interrupt enabled
