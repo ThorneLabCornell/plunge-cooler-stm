@@ -226,6 +226,7 @@ void rx_handle(void) {
 			break;
 
 		case PLUNGE: ;
+			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
 			HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		/* retrieve info */
@@ -264,13 +265,10 @@ void rx_handle(void) {
 			// ^ delay in ticks between dispensing and drop hit target in x direction
 
 
-			HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); //disengage brake
-
-
 			/* configure tim4 for final dispense timing */
 			TIM4->CR1  &= ~TIM_CR1_CEN;
 
-			TIM4->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
+			TIM4->CNT   =  100;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
 			TIM4->ARR 	= brake_pos; 	// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
 			TIM4->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
 			TIM4->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
@@ -280,7 +278,7 @@ void rx_handle(void) {
 			/* configuring encoder counter */
 			TIM2->CR1  &= ~TIM_CR1_CEN;
 
-			TIM2->CNT   =  0;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
+			TIM2->CNT   =  100;				// 100 included here and in ARR to make sure it doesnt immediately underflow if it vibrates up
 			TIM2->ARR 	= brake_pos; 		// Counter rolls over at brake_pos which triggers an interrupt handled in TIM2_IRQHandler (stm32h7xx_it.c)
 			TIM2->SR   &= ~TIM_SR_UIF; 		// Clear the interrupt flag
 			TIM2->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
@@ -292,7 +290,7 @@ void rx_handle(void) {
 			/* configuring data logging timer */
 			TIM5->CR1  &= ~TIM_CR1_CEN; // Start TIM5 to commence data collection
 
-			TIM5-> CNT  = 0;				//
+			TIM5-> CNT  = 100;				//
 			TIM5->ARR 	= CLOCKS_PER_LOG; 	// check positione interval
 			TIM5->CR1  &= ~TIM_CR1_UDIS;	// make sure update is enabled
 			TIM5->DIER |=  TIM_DIER_UIE; 	// update interrupt enabled
@@ -395,7 +393,7 @@ int main(void)
   NVIC_SetPriority(TIM4_IRQn, 0); // Dispense accuracy is top priority
   NVIC_EnableIRQ(TIM4_IRQn);
 
-
+  HAL_GPIO_WritePin(BRAKE_GPIO_Port, BRAKE_Pin, 1); // Ensure brake is disengaged after reset
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -418,7 +416,6 @@ int main(void)
 //			  HAL_UART_Transmit(&huart3, (uint8_t*)rn, strlen(rn), HAL_MAX_DELAY);
 			  HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 		  }
-//
 		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
 		  plunge_done_flag = 0;
