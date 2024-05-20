@@ -28,7 +28,8 @@
 extern uint32_t dispense_delay_clocks; 	// in ticks, time between dispensing signal and hitting target
 										// this is a function of latency(constant), drop speed and target distance
 										// target distance is a function of tilt angle
-extern uint16_t posLog[LOG_SIZE];	// log of all position poins taken. will be transmitted over UART after
+extern uint16_t posLog[LOG_SIZE];
+extern uint16_t thermoLog[LOG_SIZE];	// log of all position poins taken. will be transmitted over UART after
 extern uint32_t log_position;		//
 extern uint32_t running_sum;		// used to keep a running sum for moving average speed estimate
 extern uint32_t timepoint_pos; 		// the tick where you want the drop to intersect the target

@@ -36,6 +36,7 @@
 /* USER CODE BEGIN PD */
 double speed = 0;
 uint32_t current_pos = 0;
+uint32_t current_temp = 0;
 uint32_t prev_pos = 0;
 uint32_t next_pos = 0;
 uint32_t next_next_pos = 0;
@@ -66,6 +67,7 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 extern UART_HandleTypeDef huart3;
+extern ADC_HandleTypeDef hadc1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -279,7 +281,11 @@ void TIM5_IRQHandler(void)
 		/* TODO: Convert this datalogging to DMA to speed it up. actually a priority I think it would have big performance gains*/
 		log_position += 1; // increment number of data points taken
 		current_pos = TIM2->CNT;
-		posLog[log_position] = current_pos; // update log of positions
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    current_temp = HAL_ADC_GetValue(&hadc1);
+		posLog[log_position] = current_pos; 
+    thermoLog[log_position] = current_temp; // update log of positions
 		running_sum += current_pos - prev_pos;
 		prev_pos = current_pos;
 		/* if disp hasnt triggered yet, calculate speed and find disp pos */
