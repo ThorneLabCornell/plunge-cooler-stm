@@ -103,8 +103,6 @@ int tiltPos = 0;
 
 /*** MOTOR CONTROL FUNCTIONS ***/
 void move_tilt_steps(uint32_t delay, uint8_t dir, uint32_t num_steps) {
-	HAL_GPIO_WritePin(TILT_EN_GPIO_Port, TILT_EN_Pin, 0);
-	HAL_GPIO_WritePin(TILT_DIR_GPIO_Port, TILT_DIR_Pin, dir);
 	for(int i=0; i<num_steps; i++) {
 		HAL_GPIO_WritePin(TILT_STP_GPIO_Port, TILT_STP_Pin, GPIO_PIN_SET);
 		HAL_Delay(delay);
@@ -154,6 +152,7 @@ void move_dispenser(void) {
 
 
 }
+
 
 /*** PLUNGE FUNCTIONALITY ***/
 void start_plunge(void) {
@@ -534,7 +533,7 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
-  hadc1.Init.Resolution = ADC_RESOLUTION_16B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_10B;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
@@ -562,7 +561,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_14;
+  sConfig.Channel = ADC_CHANNEL_5;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
@@ -826,10 +825,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, PAN_DIR_Pin|BRAKE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, TILT_DIR_Pin|LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, DROP_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, DROP_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -865,19 +864,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(BRAKE_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TILT_DIR_Pin LD3_Pin */
-  GPIO_InitStruct.Pin = TILT_DIR_Pin|LD3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
   /*Configure GPIO pins : DROP_Pin LD2_Pin */
   GPIO_InitStruct.Pin = DROP_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LD3_Pin */
+  GPIO_InitStruct.Pin = LD3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_FS_OVCR_Pin */
   GPIO_InitStruct.Pin = USB_FS_OVCR_Pin;

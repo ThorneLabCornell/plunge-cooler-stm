@@ -92,14 +92,12 @@ void Error_Handler(void);
 #define PLUNGE_ENC_A_GPIO_Port GPIOA
 #define PLUNGE_ENC_B_Pin GPIO_PIN_1
 #define PLUNGE_ENC_B_GPIO_Port GPIOA
-#define THERMOCOUPLE_Pin GPIO_PIN_2
-#define THERMOCOUPLE_GPIO_Port GPIOA
 #define PAN_DIR_Pin GPIO_PIN_3
 #define PAN_DIR_GPIO_Port GPIOA
 #define BRAKE_Pin GPIO_PIN_6
 #define BRAKE_GPIO_Port GPIOA
-#define TILT_DIR_Pin GPIO_PIN_1
-#define TILT_DIR_GPIO_Port GPIOB
+#define THERMOCOUPLE_Pin GPIO_PIN_1
+#define THERMOCOUPLE_GPIO_Port GPIOB
 #define PAN_STP_Pin GPIO_PIN_11
 #define PAN_STP_GPIO_Port GPIOF
 #define DROP_Pin GPIO_PIN_10

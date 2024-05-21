@@ -102,7 +102,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     PeriphClkInitStruct.PLL2.PLL2R = 2;
     PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
     PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
-    PeriphClkInitStruct.PLL2.PLL2FRACN = 0.0;
+    PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
     PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
@@ -112,9 +112,9 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     /* Peripheral clock enable */
     __HAL_RCC_ADC12_CLK_ENABLE();
 
-    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     /**ADC1 GPIO Configuration
-    PA2     ------> ADC1_INP14
+    PB1     ------> ADC1_INP5
     */
     GPIO_InitStruct.Pin = THERMOCOUPLE_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
@@ -145,7 +145,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     __HAL_RCC_ADC12_CLK_DISABLE();
 
     /**ADC1 GPIO Configuration
-    PA2     ------> ADC1_INP14
+    PB1     ------> ADC1_INP5
     */
     HAL_GPIO_DeInit(THERMOCOUPLE_GPIO_Port, THERMOCOUPLE_Pin);
 
