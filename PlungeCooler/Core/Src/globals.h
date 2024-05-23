@@ -30,18 +30,8 @@ extern uint32_t dispense_delay_clocks; 	// in ticks, time between dispensing sig
 										// target distance is a function of tilt angle
 extern uint16_t posLog[LOG_SIZE];
 extern uint16_t thermoLog[LOG_SIZE];	// log of all position poins taken. will be transmitted over UART after
-extern uint32_t log_position;		//
-extern uint32_t running_sum;		// used to keep a running sum for moving average speed estimate
-extern uint32_t timepoint_pos; 		// the tick where you want the drop to intersect the target
-extern uint8_t  disp_flag;			// flagged when its time to dispense
-extern uint32_t dispense_pos;
-extern uint32_t posn_braked_at;
-extern uint8_t  plunge_done_flag;
-extern uint8_t  DEPOSITED;
-extern uint32_t next_next_pos;
-extern uint32_t prev_pos;
-extern double speed;
-extern uint32_t clocks_to_disp;
-void dispense(void);
+extern uint32_t log_position;		
+
+
 
 #endif /* SRC_GLOBALS_H_ */
