@@ -64,7 +64,7 @@ static void MX_USART3_UART_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
-
+void rx_handle(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -86,7 +86,7 @@ uint8_t received_character[1] = {0};
 uint8_t tx_ack[3] = {ACK, '\r', '\n'};
 uint8_t tx_bad[3] = {BAD, '\r', '\n'};
 uint8_t plunge_done_flag = 0;
-uint32_t current_temp = 0;
+uint16_t nudge_temp = 0;
 
 
 /*** USART Rx HANDLE ***/
@@ -138,8 +138,9 @@ void rx_handle(void) {
     case NUDGE: ; 
       HAL_ADC_Start(&hadc1);
       HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-      current_temp = HAL_ADC_GetValue(&hadc1);
-      sprintf(msg, "%u\n", current_temp);
+      nudge_temp = HAL_ADC_GetValue(&hadc1);
+      char msg[10];
+      sprintf(msg, "%u\n", nudge_temp);
 			HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
