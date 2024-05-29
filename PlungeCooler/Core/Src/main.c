@@ -135,7 +135,7 @@ void rx_handle(void) {
 
 			break;
 
-    case NUDGE: ; 
+    case FETCH: ; 
       HAL_ADC_Start(&hadc1);
       HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
       nudge_temp = HAL_ADC_GetValue(&hadc1);
