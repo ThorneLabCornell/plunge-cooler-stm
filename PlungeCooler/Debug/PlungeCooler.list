@@ -654,7 +654,7 @@ void rx_handle(void) {
 			break;
  8000818:	e047      	b.n	80008aa <rx_handle+0x11a>
 
-    case NUDGE: ; 
+    case FETCH: ; 
       HAL_ADC_Start(&hadc1);
  800081a:	4831      	ldr	r0, [pc, #196]	; (80008e0 <rx_handle+0x150>)
  800081c:	f001 fb6a 	bl	8001ef4 <HAL_ADC_Start>
@@ -1313,9 +1313,9 @@ static void MX_ADC1_Init(void)
  8000c92:	4b2e      	ldr	r3, [pc, #184]	; (8000d4c <MX_ADC1_Init+0xe4>)
  8000c94:	2200      	movs	r2, #0
  8000c96:	605a      	str	r2, [r3, #4]
-  hadc1.Init.Resolution = ADC_RESOLUTION_10B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_16B;
  8000c98:	4b2c      	ldr	r3, [pc, #176]	; (8000d4c <MX_ADC1_Init+0xe4>)
- 8000c9a:	220c      	movs	r2, #12
+ 8000c9a:	2200      	movs	r2, #0
  8000c9c:	609a      	str	r2, [r3, #8]
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
  8000c9e:	4b2b      	ldr	r3, [pc, #172]	; (8000d4c <MX_ADC1_Init+0xe4>)
