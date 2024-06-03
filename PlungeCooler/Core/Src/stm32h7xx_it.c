@@ -64,9 +64,8 @@ uint32_t current_temp = 0;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim5;
 extern UART_HandleTypeDef huart3;
-extern ADC_HandleTypeDef hadc1;
 /* USER CODE BEGIN EV */
-
+extern ADC_HandleTypeDef hadc2;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -236,7 +235,6 @@ void USART3_IRQHandler(void)
 /**
   * @brief This function handles TIM5 global interrupt.
   */
-
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
@@ -244,9 +242,9 @@ void TIM5_IRQHandler(void)
   /* TODO: Convert this datalogging to DMA to speed it up. actually a priority I think it would have big performance gains*/
   log_position += 1; // increment number of data points taken
   current_pos = TIM2->CNT;
-  HAL_ADC_Start(&hadc1);
-  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-  current_temp = HAL_ADC_GetValue(&hadc1);
+  HAL_ADC_Start(&hadc2);
+  HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+  current_temp = HAL_ADC_GetValue(&hadc2);
   posLog[log_position] = current_pos; // update log of positions
   thermoLog[log_position] = current_temp; 
 
