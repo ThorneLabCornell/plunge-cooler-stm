@@ -64,9 +64,8 @@ uint32_t current_temp = 0;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim5;
 extern UART_HandleTypeDef huart3;
-extern ADC_HandleTypeDef hadc1;
 /* USER CODE BEGIN EV */
-
+extern ADC_HandleTypeDef hadc1;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -236,7 +235,6 @@ void USART3_IRQHandler(void)
 /**
   * @brief This function handles TIM5 global interrupt.
   */
-
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
