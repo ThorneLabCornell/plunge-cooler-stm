@@ -147,12 +147,15 @@ void rx_handle(void) {
       break;
 
     case END: ;
+	  TIM5->CR1  |= TIM_CR1_UDIS;	// make sure update is disabled
+	  TIM5->DIER &=  ~TIM_DIER_UIE; 	// update interrupt disabled
+	  TIM2->CR1 &= ~TIM_CR1_CEN;		// disable tim2
+	  TIM5->CR1  &= ~TIM_CR1_CEN; 	// disable tim5
+	  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
+	  break;
 
-      TIM5->CR1  |= TIM_CR1_UDIS;	// make sure update is disabled
-      TIM5->DIER &=  ~TIM_DIER_UIE; 	// update interrupt disabled
-      TIM2->CR1 &= ~TIM_CR1_CEN;		// disable tim2
-		  TIM5->CR1  &= ~TIM_CR1_CEN; 	// disable tim5 
-      plunge_done_flag = 1; 
+    case SEND: ;
+    	plunge_done_flag = 1;
 
     }
 
@@ -238,7 +241,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while(1) {
 	  if(plunge_done_flag) {
-		  HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 		  char msg[10];
 		  for(int i=0 ; i<log_position; i++) {
 			  sprintf(msg, "%u\n", posLog[i]);
@@ -406,9 +408,9 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
-
+ // HAL_ADCEx_Calibration_Start(&hadc1,
+		  //ADC_CALIB_OFFSET_LINEARITY, ADC_SINGLE_ENDED);
   /* USER CODE END ADC1_Init 2 */
-
 }
 
 /**
