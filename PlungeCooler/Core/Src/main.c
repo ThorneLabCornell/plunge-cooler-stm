@@ -24,6 +24,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "stm32h7xx_it.h"
+#include "environment_control.h"
 #include "globals.h"
 #include "math.h"
 /* USER CODE END Includes */
@@ -46,6 +47,8 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+I2C_HandleTypeDef hi2c1;
+
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim5;
 
@@ -63,6 +66,7 @@ static void MX_USB_OTG_HS_USB_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 void rx_handle(void);
 /* USER CODE END PFP */
@@ -136,11 +140,15 @@ void rx_handle(void) {
 			break;
 
     case FETCH: ; 
+
+      /*
       HAL_ADC_Start(&hadc1);
       HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
       nudge_temp = HAL_ADC_GetValue(&hadc1);
+      */
+      float sensorRead = getCurrentTRH(); 
       char msg[10];
-      sprintf(msg, "%u\n", nudge_temp);
+      sprintf(msg, "%u\n", sensorRead);
 			HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
@@ -199,6 +207,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM5_Init();
   MX_ADC1_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
   /* configuring encoder counter */
@@ -367,7 +376,7 @@ static void MX_ADC1_Init(void)
   /** Common config
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV2;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_16B;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
@@ -411,6 +420,55 @@ static void MX_ADC1_Init(void)
  // HAL_ADCEx_Calibration_Start(&hadc1,
 		  //ADC_CALIB_OFFSET_LINEARITY, ADC_SINGLE_ENDED);
   /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x10B0DCFB;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
