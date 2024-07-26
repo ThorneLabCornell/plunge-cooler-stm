@@ -1,8 +1,7 @@
-#include "main.h"
+// environment_control.h
+#ifndef ENVIRONMENT_CONTROL_H
+#define ENVIRONMENT_CONTROL_H
 
-#ifndef SRC_ENVIRONMENT_CONTROL_H
-#define SRC_ENVIRONMENT_CONTROL_H
+float getCurrentTRH(void);
 
-float getCurrentTRH (){
-
-}
+#endif // ENVIRONMENT_CONTROL_H

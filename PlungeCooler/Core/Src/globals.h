@@ -15,7 +15,7 @@
 #define MOVING_AVG_LENGTH 200
 #define TIMER_FREQ 96000000 	// in Hz
 
-#define LOG_SIZE 30000
+#define LOG_SIZE 100000
 #define LOGGING_TIMEBASE 0.02		// in ms, how often a position is logged and drop calculation made
 #define CLOCKS_PER_LOG (LOGGING_TIMEBASE * TIMER_FREQ / 1000)
 

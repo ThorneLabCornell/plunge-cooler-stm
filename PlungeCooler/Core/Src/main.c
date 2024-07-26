@@ -141,14 +141,11 @@ void rx_handle(void) {
 
     case FETCH: ; 
 
-      /*
       HAL_ADC_Start(&hadc1);
       HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
       nudge_temp = HAL_ADC_GetValue(&hadc1);
-      */
-      float sensorRead = getCurrentTRH(); 
       char msg[10];
-      sprintf(msg, "%u\n", sensorRead);
+      sprintf(msg, "%u\n", nudge_temp);
 			HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
