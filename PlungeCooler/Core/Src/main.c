@@ -164,18 +164,18 @@ void rx_handle(void) {
     case UPDATERH: ; 
       uint8_t ReceivedRh = rxBuffer[1]; 
       if (ReceivedRh >= 0 && ReceivedRh <= 100){
-        RhSetpoint = RecievedRh;
+        RhSetpoint = ReceivedRh;
       }
       break; 
 
     case GETTRH: ; 
       //consider not having first ack
       char Tmsg[10];
-      sprintf(Tmsg, "%u\n", SensorValues[0]);
+      sprintf(Tmsg, "%.2f\n", SensorValues[0]);
 			HAL_UART_Transmit(&huart3, (uint8_t*)Tmsg, strlen(Tmsg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
       char RHmsg[10];
-      sprintf(RHmsg, "%u\n", SensorValues[1]);
+      sprintf(RHmsg, "%.2f\n", SensorValues[1]);
 			HAL_UART_Transmit(&huart3, (uint8_t*)RHmsg, strlen(RHmsg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 
@@ -274,7 +274,6 @@ int main(void)
 
   PID_TypeDef TPID; 
   double Input, Output, InitialSetpoint = DEFAULTRH; 
-  bool turnOff = false; 
   double Kp = KP, Ki = KI, Kd = KD; 
   PID(&TPID, &Input, &Output, &InitialSetpoint, Kp, Ki, Kd, _PID_P_ON_E, _PID_CD_DIRECT);
   PID_SetMode(&TPID, _PID_MODE_AUTOMATIC);
@@ -287,8 +286,8 @@ int main(void)
     getCurrentTRH(SensorValues);
     Input = SensorValues[1]; 
     PID_Compute(&TPID);
-    nitrogenPWM = map(Output, 0, 100, 255, 110); 
-    humidAirPWM = map(Output, 0, 100, 95, 255); 
+    nitrogenPWM = map(Output, 0, 100, 255, 110);
+    humidAirPWM = map(Output, 0, 100, 95, 255);
     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, nitrogenPWM);
     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, humidAirPWM);
 	  if(plunge_done_flag) {

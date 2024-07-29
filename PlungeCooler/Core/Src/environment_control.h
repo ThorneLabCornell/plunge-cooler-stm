@@ -2,12 +2,8 @@
 #ifndef ENVIRONMENT_CONTROL_H
 #define ENVIRONMENT_CONTROL_H
 
-float getCurrentTRH(void);
+void getCurrentTRH(float *);
 
 #endif // ENVIRONMENT_CONTROL_H
 
-}
-
-long map (){
-    
-}
+int map (int, int, int, int, int);

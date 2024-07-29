@@ -7,7 +7,7 @@
 extern I2C_HandleTypeDef hi2c1;
 extern UART_HandleTypeDef huart3;
 
-void getCurrentTRH (*values) {
+void getCurrentTRH (float *values) {
         HAL_StatusTypeDef ret;
 	uint8_t data_tx[1] = {0xFD};
 	uint8_t data_rx[6];
@@ -35,7 +35,7 @@ void getCurrentTRH (*values) {
 	}
 }
 
-long map(long x, long in_min, long in_max, long out_min, long out_max)
+int map(int x, int in_min, int in_max, int out_min, int out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

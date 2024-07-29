@@ -23,7 +23,7 @@
 #define KI 2
 #define KD 0
 
-#define DEFAULTRH 60
+#define DEFAULTRH 100
 
 #define US_TO_TICKS TIMER_FREQ/(1000*1000) //multiply by this to convert us to number of timer ticks
 #define DROP_SPEED 5000			// in mm/s, the speed that the drop moves at
