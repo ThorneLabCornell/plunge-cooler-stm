@@ -2,7 +2,7 @@
 
 #define SHT40_ADDRESS (0x44 << 1)
 
-float getCurrentTRH () {
+void getCurrentTRH (*values) {
         HAL_StatusTypeDef ret;
 	uint8_t data_tx[1] = {0xFD};
 	uint8_t data_rx[6];
@@ -24,10 +24,13 @@ float getCurrentTRH () {
 			 float t_ticks = data_rx[0] * 256 + data_rx[1];
 			 float rh_ticks = data_rx[3] * 256 + data_rx[4];
 
-			 float t_degC = -45 + 175 * t_ticks/65535;
-			 float rh_pRH = -6 + 125 * rh_ticks/65535;
-
-			 return t_degC; 
+			 values[0] = -45 + 175 * t_ticks/65535;
+			 values[1] = -6 + 125 * rh_ticks/65535;
 		 }
 	}
+}
+
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
