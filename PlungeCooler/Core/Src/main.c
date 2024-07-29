@@ -155,6 +155,7 @@ void rx_handle(void) {
       nudge_temp = HAL_ADC_GetValue(&hadc1);
       char msg[10];
       sprintf(msg, "%u\n", nudge_temp);
+      sprintf(msg, "%u\n", nudge_temp);
 			HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
       HAL_UART_Transmit(&huart3, tx_ack, sizeof(tx_ack), HAL_MAX_DELAY);
 

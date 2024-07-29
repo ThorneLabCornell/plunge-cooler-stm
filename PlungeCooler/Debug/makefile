@@ -61,7 +61,7 @@ main-build: PlungeCooler.elf secondary-outputs
 
 # Tool invocations
 PlungeCooler.elf PlungeCooler.map: $(OBJS) $(USER_OBJS) C:\Users\ret-admin\Desktop\plunge-cooler-stm\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\ret-admin\Desktop\plunge-cooler-stm\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "PlungeCooler.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\ret-admin\Desktop\plunge-cooler-stm\PlungeCooler\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="PlungeCooler.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
