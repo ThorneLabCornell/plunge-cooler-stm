@@ -53,6 +53,8 @@ void bad(void);
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -109,6 +111,8 @@ void Error_Handler(void);
 #define END '3'
 #define FETCH '4'
 #define SEND '5'
+#define UPDATERH '6'
+#define GETTRH '7'
 
 
 
