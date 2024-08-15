@@ -162,9 +162,12 @@ void rx_handle(void) {
       break;
 
     case UPDATERH: ; 
-      uint8_t ReceivedRh = rxBuffer[1]; 
-      if (ReceivedRh >= 0 && ReceivedRh <= 100){
-        RhSetpoint = ReceivedRh;
+      if(rxBuffer[2] == '\r'){
+    	  RhSetpoint = (rxBuffer[1]-'0');
+      } else if (rxBuffer[3] == '\r'){
+    	  RhSetpoint = (rxBuffer[1] - '0') * 10 + (rxBuffer[2] - '0');
+      } else {
+    	  RhSetpoint = 100;
       }
       break; 
 
@@ -273,9 +276,9 @@ int main(void)
   NVIC_EnableIRQ(TIM5_IRQn);
 
   PID_TypeDef TPID; 
-  double Input, Output, InitialSetpoint = DEFAULTRH; 
+  double Input, Output, Setpoint = DEFAULTRH;
   double Kp = KP, Ki = KI, Kd = KD; 
-  PID(&TPID, &Input, &Output, &InitialSetpoint, Kp, Ki, Kd, _PID_P_ON_E, _PID_CD_DIRECT);
+  PID(&TPID, &Input, &Output, &Setpoint, Kp, Ki, Kd, _PID_P_ON_E, _PID_CD_DIRECT);
   PID_SetMode(&TPID, _PID_MODE_AUTOMATIC);
   PID_SetOutputLimits(&TPID, 1, 100);
   /* USER CODE END 2 */
@@ -285,6 +288,7 @@ int main(void)
   while(1) {
     getCurrentTRH(SensorValues);
     Input = SensorValues[1]; 
+    Setpoint = RhSetpoint;
     PID_Compute(&TPID);
     nitrogenPWM = map(Output, 0, 100, 255, 110);
     humidAirPWM = map(Output, 0, 100, 95, 255);
