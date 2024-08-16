@@ -1,0 +1,191 @@
+[33mcommit ee841f8b2edb7ec8a3173c7257fc22e4b1764228[m[33m ([m[1;36mHEAD -> [m[1;32mthermocouple[m[33m, [m[1;31morigin/thermocouple[m[33m)[m
+Author: owenClayton <owenclayton@shaw.ca>
+Date:   Wed May 29 14:40:29 2024 -0400
+
+    renamed nudge functionality to Fetch
+
+[33mcommit 5fcc0f46a07e3de9fac702e53168e874524e1043[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Wed May 29 13:21:53 2024 -0400
+
+    fixed bugs
+
+[33mcommit c0e32dbf4c487ef0664f2f4632c3f4931b05bbbc[m
+Author: owenClayton <owenclayton@shaw.ca>
+Date:   Wed May 29 13:02:26 2024 -0400
+
+    added nudge to the commands list
+
+[33mcommit aefd49dc11fcb922b4f7a1ca3482a119d9608cc4[m
+Author: owenClayton <owenclayton@shaw.ca>
+Date:   Wed May 29 13:01:21 2024 -0400
+
+    Added temperature reading when nudged
+
+[33mcommit 4094785799226113edf34073dc1e14f4163d39ed[m
+Author: owenClayton <owenclayton@shaw.ca>
+Date:   Thu May 23 15:47:52 2024 -0400
+
+    Stripped version to only complete data logging. Starts and stops based on UART interrupts.
+
+[33mcommit ecb33a40134f22886d3b6deb200d657605e37165[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Tue May 21 16:44:16 2024 -0400
+
+    reading analog input of the thermocouple
+
+[33mcommit e8d25f562cd07427874e426c111d7a420a064c59[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Tue May 21 09:19:16 2024 -0400
+
+    added semicolon
+
+[33mcommit 20a1b89bad765c5020d1aafdc44474a394a8afb5[m
+Author: owenClayton <owenclayton@shaw.ca>
+Date:   Mon May 20 16:03:30 2024 -0400
+
+    Initial implemenmtation of thermocouple reading
+
+[33mcommit 57433536e449a290e3a52e1db0b4b4668bed426b[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: dd686d4 611975c
+Author: Nathan Li <67484134+nathanli2003@users.noreply.github.com>
+Date:   Thu May 16 11:21:31 2024 -0400
+
+    Merge pull request #1 from ThorneLabCornell/trim
+    
+    New working version
+
+[33mcommit 611975ca69cb78226ef914c4e27315a119a0d134[m[33m ([m[1;31morigin/trim[m[33m, [m[1;32mtrim[m[33m)[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Thu May 16 11:19:57 2024 -0400
+
+    Added offset to counter to avoid underflow
+
+[33mcommit a028a8eca86d71dde8cca3494ca132e7a8af42d0[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Wed May 15 12:50:46 2024 -0400
+
+    Fixed timing on STM serial comms with PC
+
+[33mcommit f9b487edf6c45245acf27b80d66bef676abb932b[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Wed May 15 11:07:34 2024 -0400
+
+    .metadata now  in gitignore
+
+[33mcommit ccb3ccde26b3cfc0966f246d3131626ce3b227dd[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Mon May 13 17:01:21 2024 -0400
+
+    Added delay after transmitting plunge data
+
+[33mcommit 770fa1a147fbe54dc979c430fd02aa522132e0c1[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Mon May 13 16:36:57 2024 -0400
+
+    Modified Plunge sequence
+    Now disengages brake before transmitting acknowledgement
+    This prevents case in which motor tries to plunge before brake is disengaged
+
+[33mcommit 13edd8e66cfcd0e37dfac6066e3b09f2303c3b4a[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Mon May 13 16:36:33 2024 -0400
+
+    Modified Plunge sequence
+    Now disengages brake before transmitting acknowledgement
+    This prevents case in which motor tries to plunge before brake is disengaged
+
+[33mcommit b36a47a20c6a5c6d22a5e51611861f74b6999bef[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Mon May 13 14:19:56 2024 -0400
+
+    Uncommented ack after start of PLUNGE in rx handler
+
+[33mcommit 57493696f25d5ee9c651ee96920f78d25465597d[m
+Merge: bd6cac5 f6a89fc
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Mon May 13 13:18:05 2024 -0400
+
+    Merge branch 'trim' of https://github.com/ThorneLabCornell/plunge-cooler-stm into trim
+
+[33mcommit bd6cac505b30e0c3224c915311932a2c928fbda7[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Sun May 12 18:41:45 2024 -0400
+
+    acknowledgement stuff, doesn't work yet
+
+[33mcommit f6a89fcb2b0d2ec5eb281cb007abad08e39c8f21[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Sun May 12 16:12:05 2024 -0400
+
+    Trim Initial Commit
+    Deleted old projects that have no documentation and were not being used in lab hardware
+    Added .gitignore file
+    Must consider whether .metadata should continue being tracked. Currently it is.
+
+[33mcommit dd686d44a7681ae3162bbabb5ad90f1e5187043c[m
+Author: Nathan Li <nathancheungli@gmail.com>
+Date:   Sun May 12 16:08:29 2024 -0400
+
+    removed .zip file
+
+[33mcommit c56eb53b58b33019a8e6b8cd85be9ea12954a72e[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Sat May 11 19:01:57 2024 -0400
+
+    Working and in right directory
+
+[33mcommit 3759dfd5631212f822edb51e22db8ba730708f0f[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Sat May 11 18:45:09 2024 -0400
+
+    Please let me push
+
+[33mcommit d72ffbffae2f9949ab63fe2b461d373aec60bcc1[m
+Author: ThorneLabCornell <jai55@cornell.edu>
+Date:   Sat May 11 17:54:29 2024 -0400
+
+    last working version -Nathan
+
+[33mcommit b0d9df1f36850e2b5dfe4857c0623994f832219e[m
+Author: leo-g-cornell <l2gabrie@uwaterloo.ca>
+Date:   Wed Dec 20 12:32:23 2023 -0500
+
+    leo final
+
+[33mcommit 93e4de800f26c5417fa846fb30b396c179bb13d4[m
+Merge: d84da29 2c7137a
+Author: leo-g-cornell <l2gabrie@uwaterloo.ca>
+Date:   Thu Nov 16 13:20:34 2023 -0500
+
+    tyrying
+
+[33mcommit d84da296de3b62473a9ded7b9205367918becd36[m
+Author: leo-g-cornell <l2gabrie@uwaterloo.ca>
+Date:   Thu Nov 16 13:13:00 2023 -0500
+
+    some changes
+
+[33mcommit 2c7137a4e2abd4b01e4b18748e39391dd9acbabf[m
+Author: Leo <l2gabrie@uwaterloo.ca>
+Date:   Thu Nov 16 13:10:34 2023 -0500
+
+    added arduino equivalent, semifunctional
+
+[33mcommit 84bcc439d7be5927e049f0e74ac51663bb29e8fb[m
+Author: Leo <l2gabrie@uwaterloo.ca>
+Date:   Fri Nov 10 11:05:39 2023 -0500
+
+    stil some bugs in positon tx
+
+[33mcommit 31b71131b44c586e4c5572203288d1cd27245918[m
+Author: Leo <l2gabrie@uwaterloo.ca>
+Date:   Tue Nov 7 16:17:17 2023 -0500
+
+    many things
+
+[33mcommit 267a46b818ce97d45b7386170f8ad6c4dfbe1f5f[m
+Author: Leo <l2gabrie@uwaterloo.ca>
+Date:   Thu Oct 26 12:12:51 2023 -0400
+
+    initial
